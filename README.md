@@ -1,16 +1,12 @@
-![ISS Tracker](assets/img/logo-image.jpg)
+![World Clock](assets/img/logo-image.jpg)
 
-The idea for this project is to build a site that would be an interesting learning tool for school astronomy clubs to use. 
-Looking through online resources for tracking / viewing the International Space Station (ISS) location, the available data was 
-good but the sites and apps lacked features to present the information that was easy to consume and the look and feel haven't been updated. 
-So I wanted to build a tracking app that combined freely available API data from multiple sources and to present the ISS tracking information 
-in a dashboard display that is easy to understand and something I'd want to use regularly myself.
+The idea for this project is to display a running analogue clock that shows both the current time for the user and an additional
+clock where a city name can be searched for and the current local time for that city will be displayed.
 
 
 ![Responsive Layout Screenshots](/wireframes/am-i-responsive.jpg) 
 
-To allow ease of deployment for end users such as school clubs, it was important to try to source all the data from APIs that didn't require the 
-need to register and use API keys as well as including much information about any API Rate Limiting of requests.
+
 
 ## Contents ##
 
@@ -47,7 +43,7 @@ need to register and use API keys as well as including much information about an
 - [Testing](#testing)
 - [Bugs](#bugs)
 - [Deployment](#deployment)
-  - [Running ISS-Tracker Locally](#running-iss-tracker-locally)
+  - [Running world-clock Locally](#running-world-clock-locally)
 - [Credits](#credits)
   - [Images](#images)
   - [Colour](#colour)
@@ -61,49 +57,45 @@ need to register and use API keys as well as including much information about an
 
 ### Project Goals ###
 
-The **goal** of this project is to build a website which displays near realtime data of the ISS Space Station in a dashboard format.
+The **goal** of this project is to build a a website that displays both local and a searchable city time.
 
 The **features** on the website will:
 
-- Show a world map with the continuously updated position of the ISS Space Station overlayed on the map
-- Present statistical data to the user relating to the ISS Space Station in a dashboard layout.
-- Allow users to email comments and new feature requests to the site owners via a contact form.
+- Show a running analogue clock with the user's current local time.
+- Show an additional analogue clock where the user can search for the local time in another city.
+- Provide an alarm clock feature that can be set for the user's local time.
 
 I achieve this by:
 
-- Proving continuous, near realtime ISS data using REST API requests.
-- Presenting a world map with the current ISS position as a custom map marker.
-- Presenting the ISS data in a clean, modern dashboard design.
+- Building the clock functionality using HTML `<canvas>` elements to draw the clock face and hands.
+- Using Timezone API data to ruturn current time of cities the user has searched for.
+- Allowing the user to set an alarm time, switch the alarm on or off and an alarm cancel button.
 - Providing an option to the customers to submit their contact and request details in a form.
 
 ### User Goals ###
 
-- **Receive** ISS Space Station data presented in a dashboard layout.
-- **Contact** the site owners to submit comments and new feature requests.
+- **Show** the current local time.
+- **Search** for the local time in another city.
+- **Set** an alarm clock using the current local time.
 
 ### User Stories ###
 
-- As a **user**, I want to see a responsive navigation menu.
-- As a **user**, I can see a world map showing the current location of the ISS Space Station.
-- As a **user**, I can see the ISS Space Station location updating regularly.
-- As a **user**, I can see a dashboad of current ISS data:
-  - The ISS latitude and Longitude
-  - The ISS orbital altitude.
-  - The ISS orbital velocity.
-  - The number of astronaughts onboard and their nationality
-  - The time the ISS has been in Earth orbit.
-  - The ISS is in daylight or eclipsed
-  - The which timezone and country the ISS is currenty above
-- As a **user**, I can see a switch to change the displayed units in metric or imperial
-- As a **user**, I can see a button to change between light and dark display mode options.
-- As a **user**, I can see a contact us form that emails the site owners after submission.
+- As a **user**, I want to see a running clock telling the curent local time.
+- As a **user**, I want to be able to see the times as AM or PM.
+- As a **user**, I want to set an alarm clock.
+- As a **user**, I want to hear an audible alarm sound and see a visual alarm cue at the set alarm time.
+- As a **user**, I want to see a second clock displaying the local time for a city I've chosen.
+- As a **user**, I want to see a search ba where I can search for a city name.
+- As a **user**, I want to see the current data and timezone information.
+- As a **user**, I want the site to remember my choices.
+- As a **user**, I want to send the site owner comments via email.
 
 ### Site Owner Goals ###
 
 - As a **site owner**, I want to create an **interactive website** to present a clean, easy to understand display of information.
-- As a **site owner**, I want the **user** to be able to have the data automatically refreshed as regularly as possible.
+- As a **site owner**, I want the **user** to be able to have the last searched city name to be remembered for the next session.
 - As a **site owner**, I want the **user** to be able to see errors displayed in a user friendly way.
-- As a **site owner**, I want the **user** to be able to contact me via email with their contact details, comments and new feature requests.
+- As a **site owner**, I want the **user** to be able to see or hear an alarm clock.
 
 --- 
 
@@ -157,6 +149,8 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - Used as the main markup language for the website content.
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
   - Used to style the individual webpages.
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  - Used to create the interactive functionality of the website
 
 ### Libraries ###
 
@@ -171,14 +165,9 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 
 ### APIs ###
 
-- [Where The ISS At?](https://wheretheiss.at/w/developer)
-  - WTIA REST API providing position, velocity, altitude, timezone for a set of cordinates etc.
-- [Leaflet.js](https://leafletjs.com/download.html)
-  - [TBC]
-- [OpenStreetMaps.org](https://popper.js.org/)
-  - [TBC]
-- [EmailJS](https://www.emailjs.com/)
-  - A service using a JavaScript SDK that allows you to send emails without the need for backend development.
+- [Google Time Zone API](https://developers.google.com/maps/documentation/timezone/overview)
+  - API to request the time zones for locations on the earth's surface.
+
   
 ### Tools ###
 
@@ -212,20 +201,19 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 ### Features Implemented ###
 
 - Responsive mobile first design using a [Bootstrap](https://getbootstrap.com/) framework.
-- User friendly display with lots of images
-- A Navbar with easy navigation that collapses on mobile displays
-- A Contact Us pop-up modal with a form to submit user details and a message that will generate an email
-- Social media links
+- User friendly display
+- A search bar for users to search for city names
+- An alarm clock with time input, on/off toggle switch and a cancel button
 
   
 ### Future Features ###
 
-- Allow users to enter an address and receive future iSS sighting data
+- Allow users to see location weather data
 
 ---
 
 ## Version Control ##
-**Version control** for this repository is managed within **GitHub** and **Gitpod** using separate [branches](https://github.com/simonjvardy/ISS-Tracker/branches)  used to work on specific aspects of the project.
+**Version control** for this repository is managed within **GitHub** and **Gitpod** using separate [branches](https://github.com/simonjvardy/world-clock/branches)  used to work on specific aspects of the project.
 The following describes the repository branch structure:
 - **Master** - this is the default branch and the source for the repository deployment.
     - **Documentation** - this branch is used for updating the README.md and testing.md documentation only.
@@ -265,7 +253,7 @@ The following workflow steps are used to create and update branches within Gitpo
 
 ## Project Management ##
 
-GitHub [Projects](https://github.com/simonjvardy/ISS-Tracker/projects) are used to organise the planning and development of the website using the Automated kanban template.
+GitHub [Projects](https://github.com/simonjvardy/world-clock/projects) are used to organise the planning and development of the website using the Automated kanban template.
 The following project cards are used to manage the tasks:
 - **Backlog** - this card is used to capture ideas for project tasks.
 - **To Do** - this is the current work queue for the project.
@@ -290,13 +278,13 @@ Markdown syntax is used to create **"To-Do" list** style checkboxes by adding `-
 ---
 ## Bugs ##
 
-To manage bugs and issues tracking, the default GitHub [bug_report.md template](https://github.com/simonjvardy/ISS-Tracker/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) has been created and activated within the repository settings Features > Issues section.
-All new bugs and issues are tracked within the GitHub repository [Issues section](https://github.com/simonjvardy/ISS-Tracker/issues) .
-Open issues are managed within the [GitHub Projects section](https://github.com/simonjvardy/ISS-Tracker/projects)
+To manage bugs and issues tracking, the default GitHub [bug_report.md template](https://github.com/simonjvardy/world-clock/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) has been created and activated within the repository settings Features > Issues section.
+All new bugs and issues are tracked within the GitHub repository [Issues section](https://github.com/simonjvardy/world-clock/issues) .
+Open issues are managed within the [GitHub Projects section](https://github.com/simonjvardy/world-clock/projects)
 
 Each branch is then **merged** into the **master branch** using a **pull request** that is **linked** to the **open issue**. Once merged, and the bug report **closed**, the branch is **deleted**.
 
-Fixed bugs and issues are marked as [closed](https://github.com/simonjvardy/ISS-Tracker/issues?q=is%3Aissue+is%3Aclosed).
+Fixed bugs and issues are marked as [closed](https://github.com/simonjvardy/world-clock/issues?q=is%3Aissue+is%3Aclosed).
 
 ---
 
@@ -307,26 +295,26 @@ The website was developed using both *Gitpod* and *Visual Studio Code* and using
 - Opened up **GitHub** in the browser.
 - Signed in with my **username** and **password**.
 - Selected my **repositories**.
-- Navigated to **simonjvardy/ISS-Tracker**.
+- Navigated to **simonjvardy/world-clock**.
 - In the top navigation clicked **settings**.
 - Scrolled down to the **GitHub Pages** area.
 - Selected **Master Branch** from the **Source** dropdown menu.
 - Clicked to **confirm** my **selection**.
-- [ISS-Tracker](https://simonjvardy.github.io/ISS-Tracker/) is now **live** on **GitHub Pages**.
+- [world-clock](https://simonjvardy.github.io/world-clock/) is now **live** on **GitHub Pages**.
 
-### Running ISS-Tracker Locally ###
+### Running world-clock Locally ###
 
-Cloning ISS-Tracker from GitHub:
+Cloning world-clock from GitHub:
 
-- Navigate to **simonjvardy/ISS-Tracker**.
+- Navigate to **simonjvardy/world-clock**.
 - Click the green **Code** button.
 - **Copy** the url in the dropdown box.
 - Using your favourite **IDE** open up your preferred terminal.
 - **Navigate** to your desired file location.
 
-Copy the following code and input it into your terminal to clone ISS-Tracker:
+Copy the following code and input it into your terminal to clone world-clock:
 
-```git clone https://github.com/simonjvardy/ISS-Tracker.git```
+```git clone https://github.com/simonjvardy/world-clock.git```
 
 ---
 
