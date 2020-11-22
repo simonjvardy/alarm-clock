@@ -350,22 +350,17 @@ The colour palette was identified on [Coolors](https://coolors.co/)
 
 ### Inspiration ###
 
-The following websites were used for design and image ideas based on similar business sectors:
-- [Osprey Consulting Services](https://ospreycsl.co.uk/)
-- [IAG The International Aviation Group](https://theaviationgroup.eu/mro/)
-- [Aviation Analysts International](http://www.inter-aviation.com/)
-- [Aviation Consulting Services](https://aviationconsultingservices.com.au/)
-- [ICF](https://www.icf.com/)
-- [Alton Aviation Consultants](https://altonaviation.com/)
-- [VJL Consulting Ltd](https://vjlconsult.com)
+The following websites were used as the starting point and inspiration for creating the HTML Canvas clock code:
+- [W3Schools](https://www.w3schools.com/graphics/canvas_clock.asp) Canvas Clock Tutorial.
+- [dhtmlgoodies.com](http://www.dhtmlgoodies.com/tutorials/canvas-clock/) Excellent HTML Canvas clock tutorial
+- [jQuery2DotNet](https://jsfiddle.net/lesson8/ezhzq/) HTML Canvas clock code example.
+- [Script Tutorials](http://www.script-tutorials.com/html5-clocks/) HTML Canvas clock code example.
 
-The following website was used for design ideas and a clean modern look:
-- [Greenhouse Digital Marketing Agency](https://pages.ghagency.com/)
+
 
 ### Acknowledgements ###
 
 - [Simon Vardy](https://github.com/simonjvardy/Aviation-Consultancy) MS-1 Project for the re-use of many ideas and code snippets.
-- [NASA ISS Mission Page](https://www.nasa.gov/mission_pages/station/main/index.html) for it's endless supply of cool ideas, images, data, resources and all round awesomeness!
 - [W3Schools](https://www.w3schools.com/) for just being a constant source of help and inspiration!
 - [Code Institute](https://codeinstitute.net/full-stack-software-development-diploma/) Course material for the inspiration from code-along challenges.
 - [San Francisco State Univerity](https://its.sfsu.edu/projects/resources) PMO Resources webpage where the original Unit Testing and UAT Testing Plan documents were sourced
@@ -375,10 +370,16 @@ The following website was used for design ideas and a clean modern look:
 - [Gary Simons](https://github.com/GarySimons/WildBunch-Florist) for further README.md content ideas.
 - [Software Testing Fundamentals (STF)](http://softwaretestingfundamentals.com/) for an excellent guide on building testing processes.
 - [Git - Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) documentation for help understanding how to manage branches in GitHub / Gitpod.
-- [Stack Overflow](https://stackoverflow.com/questions/273695/what-are-some-examples-of-commonly-used-practices-for-naming-git-branches) for ideas and help with GitHub branch naming conventions.
 - [digitaljhelms](https://gist.github.com/digitaljhelms/4287848) for ideas and help with GitHub branch naming conventions.
 - [TutorialRepublic](https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/) for Boostrap help and tutorials.
-- [Stack Overflow](https://stackoverflow.com/questions/49042458/how-do-i-create-a-transparent-jumbotron-with-bootstrap-v-4-0-0) for fixing the Jumbotron background problem.
+- [Dev.Opera](http://dev.opera.com/articles/view/html-5-canvas-the-basics/) HTML5 canvas - the basics
+- [Smashing Magazine](https://www.smashingmagazine.com/2010/10/local-storage-and-how-to-use-it/) Guide on Local Storage
+- [GitHub](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site) Help guide on using Error 404 pages on repositories.
+- [Stack Overflow](https://stackoverflow.com/)
+  - [Stack Overflow](https://stackoverflow.com/questions/49042458/how-do-i-create-a-transparent-jumbotron-with-bootstrap-v-4-0-0) for fixing the Jumbotron background problem.
+  - [Stack Overflow](https://stackoverflow.com/questions/273695/what-are-some-examples-of-commonly-used-practices-for-naming-git-branches) for ideas and help with GitHub branch naming conventions.
+  - [Stack Overflow](https://stackoverflow.com/questions/18541331/how-to-make-javascript-use-time-from-the-world-clock-gmt-to-be-specific) for ideas and help with making JavaScript use the world clock (GMT).
+  - [Stack OVerflow](https://stackoverflow.com/questions/25095548/how-to-draw-a-circle-in-html5-canvas-using-javascript) for ideas and help with drawing circles using HTML Canvas elements and JavaScript
 - [Bootstrap](https://getbootstrap.com/)
   - [Jumbotron](https://getbootstrap.com/docs/4.5/components/jumbotron/) example code was copied and adapted for the Home page CTA / Hero image.
   - [Cards](https://getbootstrap.com/docs/4.5/components/card/) example code was copied and adapted for the Home page features section.
