@@ -2,7 +2,7 @@ describe("Alarm Clock", () => {
     describe("Build the Clock", () => {
         describe("Configure Global Variables", () => {
             it("Variable name canvas to be defined", () => {
-                expect(clockImage).toBeDefined();
+                expect(canvas).toBeDefined();
                 expect(canvas).toBeInstanceOf(HTMLElement);
             });
             it("Variable name canvas to be passed the HTML Canvas DOM element ID", () => {
@@ -10,7 +10,7 @@ describe("Alarm Clock", () => {
             });
             it("Variable name canvas to be defined", () => {
                 expect(context).toBeDefined();
-                expect(clockImage).toBeInstanceOf(HTMLCanvasElement);
+                expect(context).toBeInstanceOf(HTMLCanvasElement);
             });
             it("Variable name canvas to be defined", () => {
                 expect(clockImage).toBeDefined();
