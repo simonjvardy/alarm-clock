@@ -25,14 +25,12 @@ clock where a city name can be searched for and the current local time for that 
 - [Technologies](#technologies)
   - [Languages](#languages)
   - [Libraries](#libraries)
+  - [APIs](#apis)
   - [Tools](#tools)
 - [Features](#features)
   - [Features Implemented](#features-implemented)
   - [Future Features](#future-features)
-- [API](#api)
-    - [API-1](#api-1)
-    - [API-2](#api-2)
-    - [API-3](#api-3)
+- [Application Programming Interface](#application-programming-interface)
 - [Version Control](#version-control)
     - [Gitpod Workspaces](#gitpod-workspaces)
     - [Branches](#branches)
@@ -47,7 +45,6 @@ clock where a city name can be searched for and the current local time for that 
 - [Credits](#credits)
   - [Images](#images)
   - [Colour](#colour)
-  - [Image editing](#image-editing)
   - [Inspiration](#inspiration)
   - [Acknowledgements](#acknowledgements)
 
@@ -212,6 +209,11 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 
 ---
 
+## Application Programming Interface ##
+
+
+---
+
 ## Version Control ##
 **Version control** for this repository is managed within **GitHub** and **Gitpod** using separate [branches](https://github.com/simonjvardy/world-clock/branches)  used to work on specific aspects of the project.
 The following describes the repository branch structure:
@@ -253,22 +255,38 @@ The following workflow steps are used to create and update branches within Gitpo
 
 ## Project Management ##
 
-GitHub [Projects](https://github.com/simonjvardy/world-clock/projects) are used to organise the planning and development of the website using the Automated kanban template.
-The following project cards are used to manage the tasks:
+GitHub [Projects](https://github.com/simonjvardy/world-clock/projects) are used to organise the planning and development of the website.
+Three GitHub projects are used to manage different aspects of the site development:
+- [Development](https://github.com/simonjvardy/world-clock/projects/1)
+  - Manages general project tasks and files including HTML & CSS
+- [Development - JavaScript](https://github.com/simonjvardy/world-clock/projects/2)
+  - Manages tasks relating to the development of the JavaScript functionality
+- [Bug Fixes](https://github.com/simonjvardy/world-clock/projects/3)
+  - Manages the triage and prioritisation of the bug fixes.
+
+The Projects are created using the following GitHub templates:
+- `Automated kanban` template for the **Development** and **Development - JavaScript** projects 
+- `Bug Triage` template for the **Bug Fixes** project.
+
+The following kanban project cards are used to manage the tasks:
 - **Backlog** - this card is used to capture ideas for project tasks.
 - **To Do** - this is the current work queue for the project.
 - **In Progress** - this is the list of tasks currently in work.
     - New issues and pull requests are automatically added to this column using project card automation options.
-- **Review in progress** - Pull requests are automatically moved here by project automation options when the reviewer requests any changes to be carried out.
-    - As there is only one contributor on this project currently, most pull requests bypass this card as the request is usually reviewed and merged in the same step.
-- **Reviewer approved** - Pull requests are automatically moved here by project automation options when they meet the minimum number of required reviews.
-    - As there is only one contributor currently, most pull requests bypass this card as the request is usually reviewed and merged in the same step.
 - **Testing** - Testing tasks list
 - **Done** - completed tasks
 
+he following Bug Triage template project cards are used to manage the Bux fixes tasks:
+- **Needs Triage** - this card is used to capture new bugs prior to assigning a priority.
+  - A triage card is more appropriate for larger projects than this but left in as this is where all new issues are assigned when linking a project to a new issue.
+- **High Priority** - this is the high priority queue for the project.
+- **Low Priority** - this is the low priority queue for the project.
+- **Closed** - completed tasks.
+
 Markdown syntax is used to create **"To-Do" list** style checkboxes by adding `- [ ]` for an un-ticked checkbox and `- [x]` for a ticked checkbox on cards as a way of splitting a single complex task into a list of steps to be completed.
 
-![GitHub Projects](assets/img/github-projects.png)
+![GitHub Projects - Development](assets/img/github-projects-development.png)
+![GitHub Projects - Bug Fixes](assets/img/github-projects-bugfixes.png)
 
 ---
 ## Testing ##
