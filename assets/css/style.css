@@ -1,0 +1,40 @@
+
+/* -------------------------------------Special Styling */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    background-color: #eee;
+}
+
+/* -------------------------------------HEADER SECTION */
+
+
+
+/* -------------------------------------MAIN BODY STYLING */
+/* -------------------------------------Clock Canvas */
+
+#clockCanvas {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    max-height: 400px;
+}
+
+/* -------------------------------------Alarm Clock card */
+
+.form-control {
+    display: inline-block;
+    width: 50px;
+}
+
+.toggle-handle {
+    border: 1px solid #777;
+    background-color: #d6e1ea;
+}
+
+
+/* -------------------------------------FOOTER SECTION */
