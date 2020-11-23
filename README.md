@@ -343,6 +343,7 @@ Copy the following code and input it into your terminal to clone world-clock:
 You can find the images used for the site [here](assets/images). I have sourced them through various websites, which are either free to use or used under license:
 
 - Homepage
+  - The [Clock Face Background Image](https://www.deviantart.com/agf81/art/Clock-Face-2-169291889) was sourced and used under Creative Commons Attribution 3.0 License Credit: [AGF81](https://www.deviantart.com/agf81)
 
 ### Colour ###
 
