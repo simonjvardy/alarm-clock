@@ -1,15 +1,39 @@
+// Code credit: Adapted from tutorials on the following sites
+// http://www.dhtmlgoodies.com/tutorials/canvas-clock/
+// http://www.jquery2dotnet.com/2012/11/html5-clocks.html
+// http://www.script-tutorials.com/html5-clocks/
+// https://www.w3schools.com/graphics/canvas_clock.asp
+
 // Get the javascript DOM reference to the canvas tag
-let canvas = document.getElementById('clockCanvas');
-let context = canvas.getContext('2d'); // The context method contains all the properties which we will use to draw on the canvas
+const canvas = document.getElementById('clockCanvas');
+const context = canvas.getContext('2d'); // The context method contains all the properties needed to draw on the canvas
 
+//
+// Code snippet from https://stackoverflow.com/questions/3511200/new-image-how-to-know-if-image-100-loaded-or-not
+// ANd https://web.dev/promises/
+function getImage(url) {
+    return new Promise(function(resolve, reject) {
+        let clockFaceImg = new Image();
+        clockFaceImg.onload = function() { 
+            resolve(url); 
+        }
+        clockFaceImg.onerror = function() {
+            reject(url);
+        }
+        clockFaceImg.src = url;
+    });
+}
 
-// Configure the loading of the background image
-// Ensure the image has loaded from the server first - clockImageLoaded returns true once the image is loaded
-let clockImage = new Image();
-let clockImageLoaded = false;
+getImage('assets/img/clock-face.png').then(function(response) {
+    return response;
+}, function(error) {
+    console.log("Failed to Load!", error);
+})
 
 // Add the clock face
-
+function loadBackgroundImage() {
+    context.drawImage(getImage, 0, 0, canvas.clientWidth, canvas.height);
+}
 
 // Draw the clock hour hand
 
@@ -27,3 +51,8 @@ let clockImageLoaded = false;
 
 
 // Make the clock run
+function clock() {
+
+}
+
+clock();  // start the application
