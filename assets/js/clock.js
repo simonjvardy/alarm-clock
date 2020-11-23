@@ -8,10 +8,25 @@
 const canvas = document.getElementById('clockCanvas');
 const context = canvas.getContext('2d'); // The context method contains all the properties needed to draw on the canvas
 
-//
-// Code snippet from https://stackoverflow.com/questions/3511200/new-image-how-to-know-if-image-100-loaded-or-not
-// ANd https://web.dev/promises/
-function getImage(url) {
+// Code Snippet adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await
+// Fetch the background image and wait for it to load
+async function getClockImage() {
+    const response = await fetch('assets/img/clock-face.png');
+    if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+    } else {
+        const blob = await response.blob();  // returns the results of the fetch function as a blob
+        const url = URL.createObjectURL(blob);  // creates a DOMString containing the object URL that can be used to reference the contents of the specified source object.
+        clockFaceImg.src = url;
+    }
+}
+
+getClockImage().catch(error => {
+    console.log('There has been a problem with your fetch operation: ' + error.message);
+});
+
+
+/*function getImage(url) {
     return new Promise(function(resolve, reject) {
         let clockFaceImg = new Image();
         clockFaceImg.onload = function() { 
@@ -28,11 +43,11 @@ getImage('assets/img/clock-face.png').then(function(response) {
     return response;
 }, function(error) {
     console.log("Failed to Load!", error);
-})
+})*/
 
 // Add the clock face
 function loadBackgroundImage() {
-    context.drawImage(getImage, 0, 0, canvas.clientWidth, canvas.height);
+    context.drawImage(getClockImage, 0, 0, canvas.clientWidth, canvas.height);
 }
 
 // Draw the clock hour hand
@@ -48,7 +63,9 @@ function loadBackgroundImage() {
 
 
 // Create the whole clock
-
+function generateClock() {
+    loadBackgroundImage();
+}
 
 // Make the clock run
 function clock() {
