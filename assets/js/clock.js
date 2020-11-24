@@ -4,80 +4,92 @@
 // http://www.script-tutorials.com/html5-clocks/
 // https://www.w3schools.com/graphics/canvas_clock.asp
 
-const canvas = document.getElementById('clockCanvas');  // Get the javascript DOM reference to the canvas tag
-const context = canvas.getContext('2d'); // The context method contains all the properties needed to draw on the canvas
-const clockFaceImg = new Image();
+const canvas = document.getElementById('clockCanvas');// Get the javascript DOM reference to the canvas tag
+const context = canvas.getContext('2d'); // The context method contains all the properties which we will use to draw on the canvas
+
+const clockFaceImg = new Image();  // Create a new HTMLImageElement instance
+let clockFaceImgLoaded = false;  // Set the initial state of the clockFaceImgLoaded flag to false
+
+// Ensure the image has loaded from the server before drawing anything on the canvas - clockFaceImgLoaded returns true once the image is loaded
+clockFaceImg.onload = function() {
+    clockFaceImgLoaded = true;
+}
 clockFaceImg.src = 'assets/img/clock-face.png';
 
 
-
-
-// Code Snippet adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await
-// Fetch the background image and wait for it to load
-/*async function getClockImage() {
-    try {
-        const response = await fetch('assets/img/clock-face.png');
-        if (!response.ok) {
-            throw new Error(`Error! status: ${response.status}`);
-        } else {
-            const blob = await response.blob();  // returns the results of the fulfilled fetch promise as a blob
-            const url = URL.createObjectURL(blob);  // creates a DOMString containing the object URL that can be used to reference the contents of the specified source object.
-            clockFaceImg.src = url;
-        }
-    } catch(error) {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
-    }
-}
-
-getClockImage();
-
-
-function getImage(url) {
-    return new Promise(function(resolve, reject) {
-        let clockFaceImg = new Image();
-        clockFaceImg.onload = function() { 
-            resolve(url); 
-        }
-        clockFaceImg.onerror = function() {
-            reject(url);
-        }
-        clockFaceImg.src = url;
-    });
-}
-
-getImage('assets/img/clock-face.png').then(function(response) {
-    return response;
-}, function(error) {
-    console.log("Failed to Load!", error);
-})*/
-
 // Add the clock face
-clockFaceImg.addEventListener('Load', e => {
-    context.drawImage(clockFaceImg, 0, 0, canvas.width, canvas.height);
-});
-    
+function loadBackgroundImage() {
+    // After the context.translate() remap of (0,0) pos, the top left corner of the image is in the centre of the canvas!
+    // Reposition the image back to the canvas top left corner e.g. (-200, -200, 400, 400)
+    context.drawImage(clockFaceImg, canvas.width/2 * -1 ,canvas.height/2 * -1,canvas.width, canvas.height);
+}
 
-// Draw the clock hour hand
+// context.rotate() function uses Radians as an argument. It's easier to imagine degrees for rotation angles so this function just converts them to Radians.
+function convertDegreeToRadians(deg) {
+    return (Math.PI / 180) * deg
+ } 
 
 
-// Draw the clock minutes hand
+// Create the clock hour hand
+createHourHand(currentDate) {
 
+}
 
-// Draw the clock seconds hand
+// Create the clock minutes hand
+createMinuteHand(currentDate) {
+    let min = currentDate.getMinutes() + currentDate.getSeconds() / 60;  // Extract the minutes value. Adding seconds value / 60 lets the minute hand move smoothly from minute to minute
+    context.save();  
+    context.fillStyle = 'black';  
+    context.rotate(convertDegreeToRadians(min * 6));  // for each minute value, the hand will rotate 6 degrees (60 x 6 = 360)
+    drawHand(130, 7);  // Draw the minute hand with 130 as the size argument, 7 as the thickness argument
+    context.restore();      
+}
 
+// Create the clock seconds hand
+createSecondHand(currentDate) {
+    let sec = currentDate.getSeconds();  // Extract the seconds value from the input date: gets a value between 0 - 59
+    context.save(); 
+    context.fillStyle = 'red';  // Draw a red seconds hand
+    context.rotate(convertDegreeToRadians(sec * 6));  // for each seconds value, the hand will rotate 6 degrees (60 x 6 = 360)
+    createHand(150);  // Create the hand with size 150
+    context.restore();
+}
 
 // Write text on the clock face
 
 
-// Create the whole clock
-function generateClock() {
+// All the hands are a similar stretched diamond shapes, so this function prevents repetition of code
+function createHand(size, thickness) {
+        thickness = thickness || 4;  // The value of thickness is either set as a function argument or defaults to 4
 
+        // Draw the basic clock hand shape
+        context.beginPath();
+        context.moveTo(0,0); // Start drawing from the canvas center
+        context.lineTo(thickness * -1, -10);  // draw 1st (short) side of the diamond up and out, to a value set by argument 'thickness * -1'
+        context.lineTo(0, size * -1); // draw 2nd (long) side of the diamond up, to a value set by argument 'size * -1' 
+        context.lineTo(thickness,-10);  // Draw 3rd (long) side of the diamond down, to to a value set by argument 'thickness'
+        context.lineTo(0,0);  //  Draw the 4th (short) side of the diamond back to the canvas centre
+        context.fill();  // fill the clock had with the defines colour
+     }
+
+// Create the whole clock
+function createClock() {
+    loadBackgroundImage();
+    let currentDate = new Date();
+    createHourHand(currentDate);
+    createMinuteHand(currentDate);
+    createSecondHand(currentDate);
 }
 
 // Make the clock run
 function clock() {
-    context.translate(canvas.width/2, canvas.height/2);
-    generateClock();
+    // Test that the clock background image file has loaded before creating the clock - if not, wait 10ms and try calling the clock() function again
+    if (!clockFaceImgLoaded) {
+        setTimeout('clock()', 10);
+        return;
+    }    
+    context.translate(canvas.width/2, canvas.height/2);  // Remap the (0,0) position on the canvas to the centre ready for canvas rotation
+    setInterval('createClock()', 1000);  // Update the createClock() function every second
 }
 
-clock();  // start the application
+clock(); // Start the application
