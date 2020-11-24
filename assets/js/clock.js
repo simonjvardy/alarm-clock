@@ -34,15 +34,24 @@ createMinuteHand(currentDate) {
 // Create the clock seconds hand
 createSecondHand(currentDate) {
     let sec = currentDate.getSeconds();  // Gives us a value between 0-59
-    context.strokeStyle = 'red';
-    context.beginPath();
-    context.moveTo(0,0);
-    context.lineTo(0,-150);
-    context.stroke();
+    context.fillStyle = 'red';
+    createHand(150);  // Create the hand with size 150
 }
 
 // Write text on the clock face
 
+
+// All the hands are a similar stretched diamond shapes, so this function prevents repetition of code
+function createHand(size) {
+        // Draw the basic clock hand shape
+        context.beginPath();
+        context.moveTo(0,0); // Start drawing from the canvas center
+        context.lineTo(thickness * -1, -10);  // draw 1st (short) side of the diamond up and out, to a value set by argument 'thickness * -1'
+        context.lineTo(0, size * -1); // draw 2nd (long) side of the diamond up, to a value set by argument 'size * -1' 
+        context.lineTo(thickness,-10);  // Draw 3rd (long) side of the diamond down, to to a value set by argument 'thickness'
+        context.lineTo(0,0);  //  Draw the 4th (short) side of the diamond back to the canvas centre
+        context.fill();  // fill the clock had with the defines colour
+     }
 
 // Create the whole clock
 function createClock() {
