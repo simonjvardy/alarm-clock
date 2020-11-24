@@ -31,22 +31,28 @@ function convertDegreeToRadians(deg) {
 
 
 // Create the clock hour hand
-createHourHand(currentDate) {
-
+function createHourHand(currentDate) {
+    let hrs = currentDate.getHours() + currentDate.getMinutes() / 60;  // Extract the hours value. Adding Minutes value / 60 lets the hour hand move smoothly from hour to hour
+    let degrees = (hrs * 360 / 12) % 360;  // Modulus operator just calculates the the same rotation for the 24hr clock values e.g. 03:00 or 15:00 = 90° rotation
+    context.save();  // Save the "zero rotation" start point of the canvas
+    context.fillStyle = 'black';  // Draw a black stretched diamond for the Hours hand
+    context.rotate(convertDegreeToRadians(degrees));  // for each hour value, the hand will rotate 30 degrees (30 x 12 = 360)
+    createHand(110, 7);  // Draw the hour hand with 110 as the size argument, 7 as the thickness argument
+    context.restore();  // Return the canvas rotation back to the initial save point, ready for the next rotation function
 }
 
 // Create the clock minutes hand
-createMinuteHand(currentDate) {
+function createMinuteHand(currentDate) {
     let min = currentDate.getMinutes() + currentDate.getSeconds() / 60;  // Extract the minutes value. Adding seconds value / 60 lets the minute hand move smoothly from minute to minute
     context.save();  
     context.fillStyle = 'black';  
     context.rotate(convertDegreeToRadians(min * 6));  // for each minute value, the hand will rotate 6 degrees (60 x 6 = 360)
-    drawHand(130, 7);  // Draw the minute hand with 130 as the size argument, 7 as the thickness argument
+    createHand(130, 7);  // Draw the minute hand with 130 as the size argument, 7 as the thickness argument
     context.restore();      
 }
 
 // Create the clock seconds hand
-createSecondHand(currentDate) {
+function createSecondHand(currentDate) {
     let sec = currentDate.getSeconds();  // Extract the seconds value from the input date: gets a value between 0 - 59
     context.save(); 
     context.fillStyle = 'red';  // Draw a red seconds hand
@@ -85,7 +91,7 @@ function createClock() {
 function clock() {
     // Test that the clock background image file has loaded before creating the clock - if not, wait 10ms and try calling the clock() function again
     if (!clockFaceImgLoaded) {
-        setTimeout('clock()', 10);
+        setTimeout('clock()', 100);
         return;
     }    
     context.translate(canvas.width/2, canvas.height/2);  // Remap the (0,0) position on the canvas to the centre ready for canvas rotation
