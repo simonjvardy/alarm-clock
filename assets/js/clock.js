@@ -1,61 +1,24 @@
-// Code credit: Adapted from tutorials on the following sites
-// http://www.dhtmlgoodies.com/tutorials/canvas-clock/
-// http://www.jquery2dotnet.com/2012/11/html5-clocks.html
-// http://www.script-tutorials.com/html5-clocks/
-// https://www.w3schools.com/graphics/canvas_clock.asp
+// Get the javascript DOM reference to the canvas tag
+const canvas = document.getElementById('clockCanvas');
+const context = canvas.getContext('2d'); // The context method contains all the properties which we will use to draw on the canvas
 
-const canvas = document.getElementById('clockCanvas');  // Get the javascript DOM reference to the canvas tag
-const context = canvas.getContext('2d'); // The context method contains all the properties needed to draw on the canvas
+
+// Configure the loading of the background image
+// Ensure the image has loaded from the server first - clockImageLoaded returns true once the image is loaded
 const clockFaceImg = new Image();
+let clockImageLoaded = false;
+clockFaceImg.onload = function() {
+    clockImageLoaded = true;
+}
 clockFaceImg.src = 'assets/img/clock-face.png';
 
 
-
-
-// Code Snippet adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await
-// Fetch the background image and wait for it to load
-/*async function getClockImage() {
-    try {
-        const response = await fetch('assets/img/clock-face.png');
-        if (!response.ok) {
-            throw new Error(`Error! status: ${response.status}`);
-        } else {
-            const blob = await response.blob();  // returns the results of the fulfilled fetch promise as a blob
-            const url = URL.createObjectURL(blob);  // creates a DOMString containing the object URL that can be used to reference the contents of the specified source object.
-            clockFaceImg.src = url;
-        }
-    } catch(error) {
-        console.log('There has been a problem with your fetch operation: ' + error.message);
-    }
-}
-
-getClockImage();
-
-
-function getImage(url) {
-    return new Promise(function(resolve, reject) {
-        let clockFaceImg = new Image();
-        clockFaceImg.onload = function() { 
-            resolve(url); 
-        }
-        clockFaceImg.onerror = function() {
-            reject(url);
-        }
-        clockFaceImg.src = url;
-    });
-}
-
-getImage('assets/img/clock-face.png').then(function(response) {
-    return response;
-}, function(error) {
-    console.log("Failed to Load!", error);
-})*/
-
 // Add the clock face
-clockFaceImg.addEventListener('Load', e => {
-    context.drawImage(clockFaceImg, 0, 0, canvas.width, canvas.height);
-});
-    
+function addBackgroundImage() {
+    // After the context.translate() remap of (0,0) pos, the top left corner of the image is in the centre of the canvas!
+    // Reposition the image back to the canvas top left corner e.g. (-200, -200, 400, 400)
+    context.drawImage(clockFaceImg, canvas.width/2 * -1 ,canvas.height/2 * -1,canvas.width, canvas.height);
+}
 
 // Draw the clock hour hand
 
@@ -70,14 +33,20 @@ clockFaceImg.addEventListener('Load', e => {
 
 
 // Create the whole clock
-function generateClock() {
+function createClock() {
+    addBackgroundImage();
 
 }
 
 // Make the clock run
 function clock() {
-    context.translate(canvas.width/2, canvas.height/2);
-    generateClock();
+    // Test that the clock background image file has loaded before creating the clock - if not, wait 10ms and try calling the clock() function again
+    if (!clockImageLoaded) {
+        setTimeout('clock()', 10);
+        return;
+    }    
+    context.translate(canvas.width/2, canvas.height/2);  // Remap the (0,0) position on the canvas to the centre ready for canvas rotation
+    setInterval('generateClock()', 1000);  // Update the createClock() function every second
 }
 
-clock();  // start the application
+clock(); // Start the application
