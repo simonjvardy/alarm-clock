@@ -37,7 +37,12 @@ createHourHand(currentDate) {
 
 // Create the clock minutes hand
 createMinuteHand(currentDate) {
-
+    let min = currentDate.getMinutes() + currentDate.getSeconds() / 60;  // Extract the minutes value. Adding seconds value / 60 lets the minute hand move smoothly from minute to minute
+    context.save();  
+    context.fillStyle = 'black';  
+    context.rotate(convertDegreeToRadians(min * 6));  // for each minute value, the hand will rotate 6 degrees (60 x 6 = 360)
+    drawHand(130, 7);  // Draw the minute hand with 130 as the size argument, 7 as the thickness argument
+    context.restore();      
 }
 
 // Create the clock seconds hand
@@ -54,7 +59,9 @@ createSecondHand(currentDate) {
 
 
 // All the hands are a similar stretched diamond shapes, so this function prevents repetition of code
-function createHand(size) {
+function createHand(size, thickness) {
+        thickness = thickness || 4;  // The value of thickness is either set as a function argument or defaults to 4
+
         // Draw the basic clock hand shape
         context.beginPath();
         context.moveTo(0,0); // Start drawing from the canvas center
@@ -82,7 +89,7 @@ function clock() {
         return;
     }    
     context.translate(canvas.width/2, canvas.height/2);  // Remap the (0,0) position on the canvas to the centre ready for canvas rotation
-    setInterval('generateClock()', 1000);  // Update the createClock() function every second
+    setInterval('createClock()', 1000);  // Update the createClock() function every second
 }
 
 clock(); // Start the application
