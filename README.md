@@ -1,4 +1,4 @@
-![World Clock](assets/img/logo-image.jpg)
+![World Clock](assets/favicons/apple-touch-icon.png)
 
 The idea for this project is to display a running analogue clock that shows both the current time for the user and an additional
 clock where a city name can be searched for and the current local time for that city will be displayed.
@@ -377,6 +377,7 @@ The following websites were used as the starting point and inspiration for creat
 - [Smashing Magazine](https://www.smashingmagazine.com/2010/10/local-storage-and-how-to-use-it/) Guide on Local Storage
 - [GitHub](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site) Help guide on using Error 404 pages on repositories.
 - [Colorlib](https://colourlib.com) the 404.html was made by Colourlib. Go visit their website for more awesome templates, themes and tools.
+- [Jenkov.com](http://tutorials.jenkov.com/html5-canvas/text.html) tutorials on HTML5 Canvas.
 - [Stack Overflow](https://stackoverflow.com/) For help fixing so many thing that fell over on this project!
   - [Stack Overflow](https://stackoverflow.com/questions/273695/what-are-some-examples-of-commonly-used-practices-for-naming-git-branches) for ideas and help with GitHub branch naming conventions.
   - [Stack Overflow](https://stackoverflow.com/questions/18541331/how-to-make-javascript-use-time-from-the-world-clock-gmt-to-be-specific) for ideas and help with making JavaScript use the world clock (GMT).

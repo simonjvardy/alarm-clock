@@ -62,6 +62,13 @@ function createSecondHand(currentDate) {
 }
 
 // Write text on the clock face
+function writeAMPM(currentDate) {
+    context.font = "18pt Helvetica"; // Set the text font properties
+    let hours = currentDate.getHours();
+    let am_pm = hours >= 12 ? 'PM' : 'AM';  //  if the hours value is grater than 12 then set the value to PM else AM
+    let textSize = context.measureText(am_pm);  // returns the height and width of the text for the font properties
+    context.strokeText(am_pm, 0 - textSize.width / 2,-40);  // Draws the text with no fill and positions the text centered about the y=0 x=-40 position
+}
 
 
 // All the hands are a similar stretched diamond shapes, so this function prevents repetition of code
@@ -82,6 +89,7 @@ function createHand(size, thickness) {
 function createClock() {
     loadBackgroundImage();
     let currentDate = new Date();
+    writeAMPM(currentDate);
     createHourHand(currentDate);
     createMinuteHand(currentDate);
     createSecondHand(currentDate);
