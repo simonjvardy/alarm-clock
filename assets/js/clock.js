@@ -63,13 +63,25 @@ function createSecondHand(currentDate) {
 
 // Write text on the clock face
 function writeAMPM(currentDate) {
-    context.font = "18pt Helvetica"; // Set the text font properties
+    context.font = "18pt Serif"; // Set the text font properties
     let hours = currentDate.getHours();
     let am_pm = hours >= 12 ? 'PM' : 'AM';  //  if the hours value is grater than 12 then set the value to PM else AM
     let textSize = context.measureText(am_pm);  // returns the height and width of the text for the font properties
     context.strokeText(am_pm, 0 - textSize.width / 2,-40);  // Draws the text with no fill and positions the text centered about the y=0 x=-40 position
 }
 
+function writeDate(currentDate) {
+    context.font = "12pt Serif"; // Set the text font properties
+    let year = currentDate.getFullYear();  // Get the 4 digit year from the date
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let month = months[currentDate.getMonth()];  // Converts the date month value into the month name from the months array
+    let dayNumber = currentDate.getDate();  // The day of the month
+    const days = ['Mon', 'Tues','Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
+    let day = days[currentDate.getDay()];  // converts the day of the week number into the day name from the days array
+    let dateString = day + " " + dayNumber + " " + month + ", " + year;
+    let textSize = context.measureText(dateString);  // returns the height and width of the text for the font properties
+    context.strokeText(dateString, 0 - textSize.width / 2, 60);  // Draws the text with no fill and positions the text centered about the y=0 x=-40 position
+}
 
 // All the hands are a similar stretched diamond shapes, so this function prevents repetition of code
 function createHand(size, thickness) {
@@ -90,6 +102,7 @@ function createClock() {
     loadBackgroundImage();
     let currentDate = new Date();
     writeAMPM(currentDate);
+    writeDate(currentDate);
     createHourHand(currentDate);
     createMinuteHand(currentDate);
     createSecondHand(currentDate);
