@@ -1,15 +1,18 @@
-// Get the javascript DOM reference to the canvas tag
-const canvas = document.getElementById('clockCanvas');
+// Code credit: Adapted from tutorials on the following sites
+// http://www.dhtmlgoodies.com/tutorials/canvas-clock/
+// http://www.jquery2dotnet.com/2012/11/html5-clocks.html
+// http://www.script-tutorials.com/html5-clocks/
+// https://www.w3schools.com/graphics/canvas_clock.asp
+
+const canvas = document.getElementById('clockCanvas');// Get the javascript DOM reference to the canvas tag
 const context = canvas.getContext('2d'); // The context method contains all the properties which we will use to draw on the canvas
 
+const clockFaceImg = new Image();  // Create a new HTMLImageElement instance
+let clockFaceImgLoaded = false;  // Set the initial state of the clockFaceImgLoaded flag to false
 
-// Configure the loading of the background image
-// Ensure the image has loaded from the server first - clockFaceImageLoaded returns true once the image is loaded
-// code adapted from http://www.dhtmlgoodies.com/tutorials/canvas-clock/
-const clockFaceImg = new Image();
-let clockFaceImageLoaded = false;
+// Ensure the image has loaded from the server before drawing anything on the canvas - clockFaceImgLoaded returns true once the image is loaded
 clockFaceImg.onload = function() {
-    clockFaceImageLoaded = true;
+    clockFaceImgLoaded = true;
 }
 clockFaceImg.src = 'assets/img/clock-face.png';
 
@@ -20,6 +23,12 @@ function loadBackgroundImage() {
     // Reposition the image back to the canvas top left corner e.g. (-200, -200, 400, 400)
     context.drawImage(clockFaceImg, canvas.width/2 * -1 ,canvas.height/2 * -1,canvas.width, canvas.height);
 }
+
+// context.rotate() function uses Radians as an argument. It's easier to imagine degrees for rotation angles so this function just converts them to Radians.
+function convertDegreeToRadians(deg) {
+    return (Math.PI / 180) * deg
+ } 
+
 
 // Create the clock hour hand
 createHourHand(currentDate) {
@@ -33,9 +42,12 @@ createMinuteHand(currentDate) {
 
 // Create the clock seconds hand
 createSecondHand(currentDate) {
-    let sec = currentDate.getSeconds();  // Gives us a value between 0-59
-    context.fillStyle = 'red';
+    let sec = currentDate.getSeconds();  // Extract the seconds value from the input date: gets a value between 0 - 59
+    context.save(); 
+    context.fillStyle = 'red';  // Draw a red seconds hand
+    context.rotate(convertDegreeToRadians(sec * 6));  // for each seconds value, the hand will rotate 6 degrees (60 x 6 = 360)
     createHand(150);  // Create the hand with size 150
+    context.restore();
 }
 
 // Write text on the clock face
@@ -65,7 +77,7 @@ function createClock() {
 // Make the clock run
 function clock() {
     // Test that the clock background image file has loaded before creating the clock - if not, wait 10ms and try calling the clock() function again
-    if (!clockFaceImageLoaded) {
+    if (!clockFaceImgLoaded) {
         setTimeout('clock()', 10);
         return;
     }    
