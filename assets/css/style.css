@@ -5,10 +5,41 @@
     padding: 0;
 }
 
+/* ------------------------------------- Background Colour Annimation  */
+/* CSS Styling created with https://www.gradient-animator.com/ */
+
 body {
     text-align: center;
-    background-color: #eee;
+    background: linear-gradient(270deg, #246655, #33a587, #5ed9b9, #038764);
+    background-size: 800% 800%;
+    -webkit-animation: scrolling-gradient 30s ease infinite;
+    -moz-animation: scrolling-gradient 30s ease infinite;
+    -o-animation: scrolling-gradient 30s ease infinite;
+    animation: scrolling-gradient 30s ease infinite;
 }
+
+@-webkit-keyframes scrolling-gradient {
+    0%{background-position:0% 92%}
+    50%{background-position:100% 9%}
+    100%{background-position:0% 92%}
+}
+@-moz-keyframes scrolling-gradient {
+    0%{background-position:0% 92%}
+    50%{background-position:100% 9%}
+    100%{background-position:0% 92%}
+}
+@-o-keyframes scrolling-gradient {
+    0%{background-position:0% 92%}
+    50%{background-position:100% 9%}
+    100%{background-position:0% 92%}
+}
+@keyframes scrolling-gradient {
+    0%{background-position:0% 92%}
+    50%{background-position:100% 9%}
+    100%{background-position:0% 92%}
+}
+
+/* End of CSS Styling from https://www.gradient-animator.com/ */
 
 /* -------------------------------------HEADER SECTION */
 
