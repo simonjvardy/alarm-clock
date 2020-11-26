@@ -1,4 +1,4 @@
-// Code credit: Adapted from tutorials on the following sites
+// Code credit: Adapted from various tutorials on the following sites
 // http://www.dhtmlgoodies.com/tutorials/canvas-clock/
 // http://www.jquery2dotnet.com/2012/11/html5-clocks.html
 // http://www.script-tutorials.com/html5-clocks/
@@ -14,17 +14,16 @@ let clockFaceImgLoaded = false;  // Set the initial state of the clockFaceImgLoa
 clockFaceImg.onload = function() {
     clockFaceImgLoaded = true;
 }
-clockFaceImg.src = 'assets/img/clock-face.png';
+clockFaceImg.src = 'assets/img/clock-face-circle2.png';
 
 
 // Add the clock face
 function loadBackgroundImage() {
-    // After the context.translate() remap of (0,0) pos, the top left corner of the image is in the centre of the canvas!
-    // Reposition the image back to the canvas top left corner e.g. (-200, -200, 400, 400)
-    context.drawImage(clockFaceImg, canvas.width/2 * -1, canvas.height/2 * -1, canvas.width, canvas.height);
+    // Reposition the image back to the canvas top left corner
+    context.drawImage(clockFaceImg, canvas.width/2 * -1, canvas.height/2 * -1, canvas.width, canvas.height); 
 }
 
-// context.rotate() function uses Radians as an argument. It's easier to imagine degrees for rotation angles so this function just converts them to Radians.
+// Utility to convert degrees to Radians to pass as an argument in the context.rotate() method.
 function convertDegreeToRadians(deg) {
     return (Math.PI / 180) * deg
  } 
@@ -32,22 +31,22 @@ function convertDegreeToRadians(deg) {
 
 // Create the clock hour hand
 function createHourHand(currentDate) {
-    let hrs = currentDate.getHours() + currentDate.getMinutes() / 60;  // Extract the hours value. Adding Minutes value / 60 lets the hour hand move smoothly from hour to hour
+    let hrs = currentDate.getHours() + currentDate.getMinutes() / 60;  // Adding Minutes value / 60 lets the hour hand move smoothly from hour to hour
     let degrees = (hrs * 360 / 12) % 360;  // Modulus operator just calculates the the same rotation for the 24hr clock values e.g. 03:00 or 15:00 = 90° rotation
     context.save();  // Save the "zero rotation" start point of the canvas
-    context.fillStyle = 'black';  // Draw a black stretched diamond for the Hours hand
+    context.fillStyle = 'black'; 
     context.rotate(convertDegreeToRadians(degrees));  // for each hour value, the hand will rotate 30 degrees (30 x 12 = 360)
-    createHand(110, 7);  // Draw the hour hand with 110 as the size argument, 7 as the thickness argument
+    createHand(110, 7, 3);  // Draw the hour hand with size, thickness and shadow arguments
     context.restore();  // Return the canvas rotation back to the initial save point, ready for the next rotation function
 }
 
 // Create the clock minutes hand
 function createMinuteHand(currentDate) {
-    let min = currentDate.getMinutes() + currentDate.getSeconds() / 60;  // Extract the minutes value. Adding seconds value / 60 lets the minute hand move smoothly from minute to minute
+    let min = currentDate.getMinutes() + currentDate.getSeconds() / 60;  // Adding seconds value / 60 lets the minute hand move smoothly from minute to minute
     context.save();  
     context.fillStyle = 'black';  
     context.rotate(convertDegreeToRadians(min * 6));  // for each minute value, the hand will rotate 6 degrees (60 x 6 = 360)
-    createHand(130, 7);  // Draw the minute hand with 130 as the size argument, 7 as the thickness argument
+    createHand(130, 7, 5);
     context.restore();      
 }
 
@@ -55,9 +54,9 @@ function createMinuteHand(currentDate) {
 function createSecondHand(currentDate) {
     let sec = currentDate.getSeconds();  // Extract the seconds value from the input date: gets a value between 0 - 59
     context.save(); 
-    context.fillStyle = 'red';  // Draw a red seconds hand
+    context.fillStyle = 'red';
     context.rotate(convertDegreeToRadians(sec * 6));  // for each seconds value, the hand will rotate 6 degrees (60 x 6 = 360)
-    createHand(150);  // Create the hand with size 150
+    createHand(150);
     context.restore();
 }
 
@@ -85,8 +84,14 @@ function writeDate(currentDate) {
 }
 
 // All the hands are a similar stretched diamond shapes, so this function prevents repetition of code
-function createHand(size, thickness) {
+function createHand(size, thickness, shadow) {
         thickness = thickness || 4;  // The value of thickness is either set as a function argument or defaults to 4
+
+        // Drop Shadow effects for the clock hands https://www.w3schools.com/tags/ref_canvas.asp
+        context.shadowBlur = 10;  // The blur effect size
+        context.shadowColor = '#555';  // Shadow colour
+        context.shadowOffsetX = shadow;  // shadow x-axis offset argument value
+        context.shadowOffsetY = shadow;  // shadow y-axis offset argument value
 
         // Draw the basic clock hand shape
         context.beginPath();
