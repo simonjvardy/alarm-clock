@@ -21,7 +21,7 @@ clockFaceImg.src = 'assets/img/clock-face.png';
 function loadBackgroundImage() {
     // After the context.translate() remap of (0,0) pos, the top left corner of the image is in the centre of the canvas!
     // Reposition the image back to the canvas top left corner e.g. (-200, -200, 400, 400)
-    context.drawImage(clockFaceImg, canvas.width/2 * -1 ,canvas.height/2 * -1,canvas.width, canvas.height);
+    context.drawImage(clockFaceImg, canvas.width/2 * -1, canvas.height/2 * -1, canvas.width, canvas.height);
 }
 
 // context.rotate() function uses Radians as an argument. It's easier to imagine degrees for rotation angles so this function just converts them to Radians.
@@ -67,7 +67,8 @@ function writeAMPM(currentDate) {
     let hours = currentDate.getHours();
     let am_pm = hours >= 12 ? 'PM' : 'AM';  //  if the hours value is grater than 12 then set the value to PM else AM
     let textSize = context.measureText(am_pm);  // returns the height and width of the text for the font properties
-    context.strokeText(am_pm, 0 - textSize.width / 2,-40);  // Draws the text with no fill and positions the text centered about the y=0 x=-40 position
+    context.fillText(am_pm, 0 - textSize.width / 2,-40);  // Draws the text and positions the text centered about the y=0 x=-40 position
+    context.fillStyle = "#777777";
 }
 
 function writeDate(currentDate) {
@@ -80,7 +81,7 @@ function writeDate(currentDate) {
     let day = days[currentDate.getDay()];  // converts the day of the week number into the day name from the days array
     let dateString = day + " " + dayNumber + " " + month + ", " + year;
     let textSize = context.measureText(dateString);  // returns the height and width of the text for the font properties
-    context.strokeText(dateString, 0 - textSize.width / 2, 60);  // Draws the text with no fill and positions the text centered about the y=0 x=-40 position
+    context.fillText(dateString, 0 - textSize.width / 2, 60);  // Draws the text and positions the text centered about the y=0 x=-40 position
 }
 
 // All the hands are a similar stretched diamond shapes, so this function prevents repetition of code
