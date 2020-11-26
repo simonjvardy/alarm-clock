@@ -104,13 +104,14 @@ I have chosen [Oswald](https://fonts.google.com/specimen/Oswald?query=Oswald) fo
 
 ### Colours ###
 
-I have chosen the colours that say 'trust' and 'dependable' buy using light blue, white and black to compliment the aviation theme. The images used in the site display a range of blue tones and so the palette choice also compliments the design of the project.
+I have chosen the colours that blend and transition smoothly together. The animated background gradient colours give a pleasing, subtle effect and allows the clock face and accordions to stand out.
 ![Colour palette](wireframes/coolors-palette-sm.png)
 
-- *Black* (000000) - Black
-- *Onyx* (444444) - Dark Grey
-- *Light Blue* (ADD8E6) - Sky blue
-- *White* (FFFFFF) - White
+- *Blue Sapphire* (22577A) - Dark Blue
+- *Cadet Blue* (38A3A5) - Turquoise
+- *Medium Aquamarine* (57CC99) - Blue / Green
+- *Light Green* (80ED99) - Light Green
+- *Tea Green* (c7F9CC) - Pale Green
 
 These colours will compliment each other well when used across the site creating a professional, clean website.
 
@@ -190,6 +191,8 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - A tool for taking a quick snapshot of the responsive breakpoints of the website to visualise how the site will look on different device screen sizes in one place. The resulting screenshot is also used as the README.md logo image.
 - [What is my Screen Resolution](http://whatismyscreenresolution.net/)
   - An online tool to find out the screen resolution on your device used for CSS @media queries
+- [CSS Gradient Animator](https://www.gradient-animator.com/)
+  - An online tool to test and generate custom CSS for animated background colour gradient effects.
 
 ---
 
@@ -343,11 +346,15 @@ Copy the following code and input it into your terminal to clone world-clock:
 You can find the images used for the site [here](assets/images). I have sourced them through various websites, which are either free to use or used under license:
 
 - Homepage
-  - The [Clock Face Background Image](https://www.deviantart.com/agf81/art/Clock-Face-2-169291889) was sourced and used under Creative Commons Attribution 3.0 License Credit: [AGF81](https://www.deviantart.com/agf81)
+  - The [Clock Face Background Image](assets/img/clock-face-circle.png) was sourced from [DeviantArt](https://www.deviantart.com/agf81/art/Clock-Face-2-169291889) and licensed under CC BY 3.0 Credit: [AGF81](https://www.deviantart.com/agf81)
+
+- 404
+  - The [Error 404 Text Background Image](assets/img/bg.jpg) was sourced from [Colorlib](https://colorlib.com/wp/free-404-error-page-templates/) as part of a template licensed under CC BY 3.0
 
 ### Colour ###
 
-The colour palette was identified on [Coolors](https://coolors.co/)
+- The colour palette was identified on [Coolors](https://coolors.co/)
+- The CSS colour gradient animations were generated on [CSS Gradient Animator](https://www.gradient-animator.com/)
 
 ### Inspiration ###
 
@@ -376,7 +383,7 @@ The following websites were used as the starting point and inspiration for creat
 - [Dev.Opera](http://dev.opera.com/articles/view/html-5-canvas-the-basics/) HTML5 canvas - the basics
 - [Smashing Magazine](https://www.smashingmagazine.com/2010/10/local-storage-and-how-to-use-it/) Guide on Local Storage
 - [GitHub](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site) Help guide on using Error 404 pages on repositories.
-- [Colorlib](https://colourlib.com) the 404.html was made by Colourlib. Go visit their website for more awesome templates, themes and tools.
+- [Colorlib](https://colorlib.com) the 404.html was made by Colourlib. Go visit their website for more awesome templates, themes and tools.
 - [Jenkov.com](http://tutorials.jenkov.com/html5-canvas/text.html) tutorials on HTML5 Canvas.
 - [Stack Overflow](https://stackoverflow.com/) For help fixing so many thing that fell over on this project!
   - [Stack Overflow](https://stackoverflow.com/questions/273695/what-are-some-examples-of-commonly-used-practices-for-naming-git-branches) for ideas and help with GitHub branch naming conventions.
