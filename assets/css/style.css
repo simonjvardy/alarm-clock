@@ -27,19 +27,19 @@ body {
 }
 
 @-webkit-keyframes scrolling-gradient {
-    0%{background-position:0% 96%}
-    50%{background-position:100% 5%}
-    100%{background-position:0% 96%}
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 @-moz-keyframes scrolling-gradient {
-    0%{background-position:0% 96%}
-    50%{background-position:100% 5%}
-    100%{background-position:0% 96%}
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 @keyframes scrolling-gradient {
-    0%{background-position:0% 96%}
-    50%{background-position:100% 5%}
-    100%{background-position:0% 96%}
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 /* End of CSS Styling from https://www.gradient-animator.com/ */
@@ -60,11 +60,15 @@ body {
 }
 
 /* -------------------------------------Accordion cards*/
-/* -------------------------------------Alarm */
+
+.accordion > .card {
+    border-radius: 10px;
+}
 
 .form-control {
     display: inline-block;
     width: 60px;
+    font-size: 1.2rem;
 }
 
 .toggle-handle {
@@ -74,21 +78,27 @@ body {
 
 .toggle-off {
     padding: 3px 0 6px 12px;
+    left: 45px;
 }
 
 .toggle-on {
     padding: 3px 12px 6px 0;
+    right: 45;
 }
 
 #alarmMins {
     margin-right: 15px;
 }
 
-/* -------------------------------------Accordion cards styling */
-
 .card-header {
     background-color: #fff;
     border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card-header h5 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    margin-top: 12px;
 }
 
 .card-header:hover {
@@ -108,18 +118,15 @@ body {
     text-decoration: underline #444;
 }
 
-/* -------------------------------------Timer */
-
-
 
 /* -------------------------------------FOOTER SECTION */
 
 
 
 /* -------------------------------------Media Queries */
-/* -------------------------------------Responsive Design - TABLET & mobile */
+/* -------------------------------------Responsive Design - mobile */
 
-@media only screen and (max-width: 943px) {
+@media only screen and (max-width: 578px) {
     #clockCanvas {
         width: 100%;
         height: auto;
