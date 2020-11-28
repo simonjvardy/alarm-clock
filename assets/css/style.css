@@ -1,8 +1,14 @@
 
 /* -------------------------------------Special Styling */
+/* Added to prevent the problems of elements overflowing horizontally on mobile devices */
 * {
     margin: 0;
     padding: 0;
+}
+
+.row,
+.container {
+        overflow-x: hidden;
 }
 
 /* ------------------------------------- Background Colour Annimation  */
@@ -51,7 +57,7 @@ body {
     margin: 10vh auto;
 }
 
-/* -------------------------------------Accordion */
+/* -------------------------------------Accordion cards*/
 /* -------------------------------------Alarm */
 
 .form-control {
@@ -72,8 +78,49 @@ body {
     padding: 3px 12px 6px 0;
 }
 
+#alarmMins {
+    margin-right: 15px;
+}
+
+/* -------------------------------------Accordion cards styling */
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card-header:hover {
+    background-color: #C7F9CC;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #444;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    font-weight: 400;
+    color: #444;
+    text-decoration: underline #444;
+}
+
 /* -------------------------------------Timer */
 
 
 
 /* -------------------------------------FOOTER SECTION */
+
+/* -------------------------------------Media Queries */
+/* -------------------------------------Responsive Design - TABLET & mobile */
+
+@media screen (max-width: 943px) {
+    #clockCanvas {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+        max-height: 400px;
+        margin: 30px auto;
+    }
+}
