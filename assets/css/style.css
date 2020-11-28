@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
 
 /* -------------------------------------Special Styling */
 /* Added to prevent the problems of elements overflowing horizontally on mobile devices */
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Castoro', serif;
 }
 
 .row,
@@ -11,7 +13,7 @@
         overflow-x: hidden;
 }
 
-/* ------------------------------------- Background Colour Annimation  */
+/* ------------------------------------- Background Colour Animation  */
 /* CSS Styling created with https://www.gradient-animator.com/ */
 
 body {
@@ -62,7 +64,7 @@ body {
 
 .form-control {
     display: inline-block;
-    width: 50px;
+    width: 60px;
 }
 
 .toggle-handle {
@@ -112,15 +114,17 @@ body {
 
 /* -------------------------------------FOOTER SECTION */
 
+
+
 /* -------------------------------------Media Queries */
 /* -------------------------------------Responsive Design - TABLET & mobile */
 
-@media screen (max-width: 943px) {
+@media only screen and (max-width: 943px) {
     #clockCanvas {
         width: 100%;
         height: auto;
         max-width: 400px;
         max-height: 400px;
-        margin: 30px auto;
+        margin: 20px auto;
     }
 }
