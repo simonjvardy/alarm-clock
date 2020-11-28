@@ -25,12 +25,10 @@ clock where a city name can be searched for and the current local time for that 
 - [Technologies](#technologies)
   - [Languages](#languages)
   - [Libraries](#libraries)
-  - [APIs](#apis)
   - [Tools](#tools)
 - [Features](#features)
   - [Features Implemented](#features-implemented)
   - [Future Features](#future-features)
-- [Application Programming Interface](#application-programming-interface)
 - [Version Control](#version-control)
     - [Gitpod Workspaces](#gitpod-workspaces)
     - [Branches](#branches)
@@ -100,7 +98,7 @@ I achieve this by:
 
 ### Fonts ###
 
-I have chosen [Oswald](https://fonts.google.com/specimen/Oswald?query=Oswald) for all of the headers and [Roboto](https://fonts.google.com/specimen/Roboto?query=Roboto) the rest of the text.
+I have chosen [Castoro](https://fonts.googleapis.com/css2?family=Castoro&display=swap) for all of the text.
 
 ### Colours ###
 
@@ -113,7 +111,7 @@ I have chosen the colours that blend and transition smoothly together. The anima
 - *Light Green* (80ED99) - Light Green
 - *Tea Green* (c7F9CC) - Pale Green
 
-These colours will compliment each other well when used across the site creating a professional, clean website.
+These colours will compliment each other well when they transition from one colour to another to create a subtle but pleasing background.
 
 ### Wireframes ###
 
@@ -123,19 +121,18 @@ I'm focusing on defining the basic layout structure of the site and identifying 
 
 #### Hand drawn drafts ####
 
-The original hand drawn sketch wireframes were created as quick and rough method to try out page formatting ideas to form a basis for creating the wireframe within balsamic.
+The original hand drawn sketch wireframe was created as quick and rough method to try out page formatting ideas to form a basis for creating the wireframe within balsamic.
 
-They represent the early stages of the design process for the website as ideas started to form and the flow of the design process from idea to finished website.
-- [Homepage](wireframes/original-drafts/wireframe-mobile-homepage-draft.jpg)
-- [Contact Us](wireframes/original-drafts/wireframe-mobile-contact-us-draft.jpg)
+It represents the early stages of the design process for the website as ideas started to form and the flow of the design process from idea to finished website.
+- [Homepage](wireframes/wireframe-mobile-homepage-draft.png)
+
 
 
 #### Final Wireframes ####
 
-The final wireframes were created using Balsamiq adapted from the original hand drawn wireframe concepts. Each image shows a page from the site in three display sizes to demonstrate the page design and layout.
+The final wireframes were created using Balsamiq adapted from the original hand drawn wireframe concepts. The image shows the homepage from the site in three display sizes to demonstrate the page design and layout.
 
-- [Homepage](wireframes/home-page.png)
-- [Contact Form Modal](wireframes/contact-form.png)
+- [Homepage](wireframes/wireframes-homepage.png)
 
 ---  
 
@@ -161,12 +158,7 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 - [Jasmine.js](https://jasmine.github.io/pages/getting_started.html)
   - Used to create test-driven development of the JavaScript files
 
-### APIs ###
 
-- [Google Time Zone API](https://developers.google.com/maps/documentation/timezone/overview)
-  - API to request the time zones for locations on the earth's surface.
-
-  
 ### Tools ###
 
 - [Git](https://git-scm.com/)
@@ -211,12 +203,6 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 - Allow users to see location weather data
 
 ---
-
-## Application Programming Interface ##
-
-
----
-
 ## Version Control ##
 **Version control** for this repository is managed within **GitHub** and **Gitpod** using separate [branches](https://github.com/simonjvardy/world-clock/branches)  used to work on specific aspects of the project.
 The following describes the repository branch structure:
@@ -383,7 +369,7 @@ The following websites were used as the starting point and inspiration for creat
 - [Dev.Opera](http://dev.opera.com/articles/view/html-5-canvas-the-basics/) HTML5 canvas - the basics
 - [Smashing Magazine](https://www.smashingmagazine.com/2010/10/local-storage-and-how-to-use-it/) Guide on Local Storage
 - [GitHub](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site) Help guide on using Error 404 pages on repositories.
-- [Colorlib](https://colorlib.com) the 404.html was made by Colourlib. Go visit their website for more awesome templates, themes and tools.
+- [Colorlib](https://colorlib.com) the 404.html was made by Colorlib. Go visit their website for more awesome templates, themes and tools.
 - [Jenkov.com](http://tutorials.jenkov.com/html5-canvas/text.html) tutorials on HTML5 Canvas.
 - [Stack Overflow](https://stackoverflow.com/) For help fixing so many thing that fell over on this project!
   - [Stack Overflow](https://stackoverflow.com/questions/273695/what-are-some-examples-of-commonly-used-practices-for-naming-git-branches) for ideas and help with GitHub branch naming conventions.
