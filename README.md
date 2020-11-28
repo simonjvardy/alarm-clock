@@ -26,6 +26,7 @@ clock where a city name can be searched for and the current local time for that 
   - [Languages](#languages)
   - [Libraries](#libraries)
   - [Tools](#tools)
+- [- A raster graphics editor used to manipulate the clock face background image.](#--a-raster-graphics-editor-used-to-manipulate-the-clock-face-background-image)
 - [Features](#features)
   - [Features Implemented](#features-implemented)
   - [Future Features](#future-features)
@@ -43,6 +44,7 @@ clock where a city name can be searched for and the current local time for that 
 - [Credits](#credits)
   - [Images](#images)
   - [Colour](#colour)
+  - [Audio](#audio)
   - [Inspiration](#inspiration)
   - [Acknowledgements](#acknowledgements)
 
@@ -63,7 +65,7 @@ The **features** on the website will:
 I achieve this by:
 
 - Building the clock functionality using HTML `<canvas>` elements to draw the clock face and hands.
-- Using Timezone API data to ruturn current time of cities the user has searched for.
+- Using Timezone API data to return current time of cities the user has searched for.
 - Allowing the user to set an alarm time, switch the alarm on or off and an alarm cancel button.
 - Providing an option to the customers to submit their contact and request details in a form.
 
@@ -185,7 +187,10 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - An online tool to find out the screen resolution on your device used for CSS @media queries
 - [CSS Gradient Animator](https://www.gradient-animator.com/)
   - An online tool to test and generate custom CSS for animated background colour gradient effects.
-
+- [Online Audio Converter](https://online-audio-converter.com/)
+  - An online tool to convert audio files between different file formats.
+- [Adobe Photoshop CS4](https://en.wikipedia.org/wiki/Adobe_Photoshop)
+  - A raster graphics editor used to manipulate the clock face background image.
 ---
 
 ## Features ##
@@ -341,6 +346,12 @@ You can find the images used for the site [here](assets/images). I have sourced 
 
 - The colour palette was identified on [Coolors](https://coolors.co/)
 - The CSS colour gradient animations were generated on [CSS Gradient Animator](https://www.gradient-animator.com/)
+
+
+### Audio ###
+
+- The [alarm clock audio file](assets/audio/) was sourced from the [BBC Sound Effects Library](http://bbcsfx.acropolis.org.uk/?q=alarm+clock) as a .wav file. However, the .wav file browser support is limited compared to .mp3 files. The .wav file was converted using [Online Audio Converter](https://online-audio-converter.com/) to create a .mp3 version.
+  - The use of audio file is licensed under [The BBC's Content License for RemArc](https://github.com/bbcarchdev/Remarc/blob/master/doc/2016.09.27_RemArc_Content%20licence_Terms%20of%20Use_final.pdf)
 
 ### Inspiration ###
 
