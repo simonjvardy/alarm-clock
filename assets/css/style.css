@@ -56,13 +56,24 @@ body {
     height: auto;
     max-width: 400px;
     max-height: 400px;
-    margin: 10vh auto;
+    margin: 10vh auto 0 auto;
 }
+
+/* -------------------------------------Bell Icon */
+
+div .bell-icon {
+    font-size: 50px;
+    width: 100%;
+    height: auto;
+    margin: 2vh auto;
+    color: #fff;
+  }
 
 /* -------------------------------------Accordion cards*/
 
 .accordion > .card {
-    border-radius: 10px;
+    border-radius: 40px 0 40px 0;
+    border-bottom: 5px solid rgba(0,0,0,.25);;
 }
 
 .form-control {
@@ -71,19 +82,9 @@ body {
     font-size: 1.2rem;
 }
 
-.toggle-handle {
-    border: 1px solid #777;
-    background-color: #d6e1ea;
-}
-
-.toggle-off {
-    padding: 3px 0 6px 12px;
-    left: 45px;
-}
-
-.toggle-on {
-    padding: 3px 12px 6px 0;
-    right: 45;
+.btn-shape {
+    margin-bottom: 10px;
+    border-radius: 25px;
 }
 
 #alarmMins {

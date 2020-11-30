@@ -30,6 +30,13 @@
             </div>
         </div>
 
+        <!-- Alarm Bell Icon -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 justify-content-center bell-icon" id="alarmBell"><i class="far fa-bell-slash"></i></div>
+            </div>
+        </div>
+
         <!-- Bootstrap Accordions -->
         <div class="wrapper mb-5">
             <div class="row">
@@ -139,11 +146,9 @@
                                                 <option value="57">57</option>
                                                 <option value="58">58</option>
                                                 <option value="59">59</option>
-                                                <!-- Alarm On / Off Switch -->
-                                                <label>
-                                                    <input id="toggleSwitch" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-offstyle="success">
-                                                </label>
                                             </select>
+                                            <!-- Alarm On / Off Switch -->
+                                            <button class="btn btn-shape" id="startStop" type="button">Set Alarm</button>
                                         </div>
                                     </form>
                                 </div>
