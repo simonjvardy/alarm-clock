@@ -1,48 +1,48 @@
-// Get alarm Time Setting
-const alarmHours = document.getElementById("alarmHrs");
-const alarmMinutes = document.getElementById("alarmMins");
-const alarmSeconds = '00'
-const alarmSound = document.getElementById("alarmSound"); 
-let savedAlarms = 0;
+// Code adapted from// https://www.youtube.com/watch?v=v3kDlRx0c5M
 
-// Save alarm time to local storage
-function storeAlarm(h, m) {
-    localStorage.setItem('alarm ',  JSON.stringify({ //save alarm hours and minutes values in local storage
-        alarmHours: h,
-        alarmMinutes: m
-    }));
-} 
+const alarmHrs = document.getElementById("alarmHrs");  // Get the DOM Element for the alarm hours selection
+const alarmMins = document.getElementById("alarmMins");  // Get the DOM Element for the alarm minutes selection
+const alarmSeconds = "00";  // Set a default seconds value of 00
+const startStop =  document.getElementById("startStop");  // Get the DOM Element for the alarm set / clear button
+const alarmDisplay = document.getElementById("alarmSound");  // 
+const bellIconDiv = document.getElementById("alarmBell");  // Get the DOM Element for the div to contain the font awesome bell icons
+bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
+let currentTime;
+let alarmElement;
+let alarmActive = false;
 
-// Get current time
-let currentTime = new Date().toLocaleTimeString();  // 
+// Get the current time and compare to the alarm time set by the user
+function alarmTime() {
+  let now = new Date();
+  currentTime = now.toLocaleTimeString();  // Return the time portion of a Date object as a string in the format "hh:mm:ss"
+  
+  if(currentTime === alarmElement) {
+    alarmDisplay.play();  // Play the alarm sound when the current time equals the alarm time
+    document.getElementById("alarmBell").className = ".bell-icon-shake";  // Assign css class to bell icon
+  }
+  setTimeout(alarmTime, 1000);  // Call the alarmTime function once per second
+}
+alarmTime();
 
-// Alarm toggle switch position
-let toggleSwitch = document.querySelector("input[id=toggleSwitch]");
-
-// When the toggle switch (checkbox) is "checked" save the alarm time and run the alarm clock else stop the alarm and clear the localStorage
-toggleSwitch.addEventListener('change', function() {
-  if (this.checked) {
-    console.log("Checkbox is checked..");  // check if the event listener is actually working
-    storeAlarm(alarmHours, alarmMinutes);  // save the alarm time values to localStorage.
-    setInterval(function(){  // Compare currentTime to alarm
-        let alarmTime = alarmHours.value + ":" + alarmMinutes.value + ":" + alarmSeconds;
-        if (alarmTime == currentTime) {
-            alarmSound.play();
-            }
-    },1000);
+startStop.onclick = function() {
+  if(alarmActive === false) {
+    alarmHrs.disabled = true;  // Disable the alarm Hours selector when the alarm is set
+    alarmMins.disabled = true;  // Disable the alarm Minutes selector when the alarm is set
+    
+    alarmElement = alarmHrs.value + ":" + alarmMins.value + ":00";
+    // this points to the parent startStop button
+    this.innerText = "Clear Alarm";  // Change the button text to Clear Alarm when clicked
+    document.getElementById("startStop").className = "btn-danger";  // Assign css class to button
+    bellIconDiv.innerHTML = '<i class="far fa-bell"></i>';
+    alarmActive = true;  // Set the alarmActive flag to true
   } else {
-    console.log("Checkbox is not checked..");  // check if the event listener is actually working
-    localStorage.clear();  // when the toggle switch is OFF clear the localStorage data
+    alarmHrs.disabled = false;  // Enable the alarm Hours selector when the alarm is not set
+    alarmMins.disabled = false;  // Enable the alarm Minutes selector when the alarm is not set
+    
+    alarmDisplay.pause();
+    this.innerText = "Set Alarm";  // Change the button text to Set Alarm when clicked
+    document.getElementById("startStop").className = "btn-success";  // Assign css class to button
+    bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
+    alarmActive = false;
   }
-});
-
-
-// When the window loads, check local storage for any saved alarms
-window.onload = function(){
-    savedAlarms = localStorage.length;
-    for (let i =0; i < localStorage.length; i++) {
-        const alarm = JSON.parse(localStorage.getItem(localStorage.key(i)));
-        // copy back 'alarm' values to the alarmHours and AlarmMinutes selectors
-    }
-  }
-
+}
