@@ -5,6 +5,8 @@ const alarmMins = document.getElementById("alarmMins");  // Get the DOM Element 
 const alarmSeconds = "00";  // Set a default seconds value of 00
 const startStop =  document.getElementById("startStop");  // Get the DOM Element for the alarm set / clear button
 const alarmDisplay = document.getElementById("alarmSound");  // 
+const bellIconDiv = document.getElementById("alarmBell");  // Get the DOM Element for the div to contain the font awesome bell icons
+bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
 let currentTime;
 let alarmElement;
 let alarmActive = false;
@@ -16,6 +18,7 @@ function alarmTime() {
   
   if(currentTime === alarmElement) {
     alarmDisplay.play();  // Play the alarm sound when the current time equals the alarm time
+    document.getElementById("alarmBell").className = ".bell-icon-shake";  // Assign css class to bell icon
   }
   setTimeout(alarmTime, 1000);  // Call the alarmTime function once per second
 }
@@ -30,6 +33,7 @@ startStop.onclick = function() {
     // this points to the parent startStop button
     this.innerText = "Clear Alarm";  // Change the button text to Clear Alarm when clicked
     document.getElementById("startStop").className = "btn-danger";  // Assign css class to button
+    bellIconDiv.innerHTML = '<i class="far fa-bell"></i>';
     alarmActive = true;  // Set the alarmActive flag to true
   } else {
     alarmHrs.disabled = false;  // Enable the alarm Hours selector when the alarm is not set
@@ -38,6 +42,7 @@ startStop.onclick = function() {
     alarmDisplay.pause();
     this.innerText = "Set Alarm";  // Change the button text to Set Alarm when clicked
     document.getElementById("startStop").className = "btn-success";  // Assign css class to button
+    bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
     alarmActive = false;
   }
 }
