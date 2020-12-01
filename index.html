@@ -25,7 +25,9 @@
         <div class="clock-container">
             <div class="row">
                 <div class="col-12 justify-content-center">
-                    <canvas id="clockCanvas" width="500" height="500">Sorry, your Browser doesn't support canvas</canvas>
+                    <canvas id="clockCanvas" width="500" height="500" aria-label="Round clock face with moving hands telling the current time" role="img">
+                        Sorry, your Browser doesn't support canvas
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -33,7 +35,7 @@
         <!-- Alarm Bell Icon -->
         <div class="container">
             <div class="row">
-                <div class="col-12 justify-content-center" id="alarmBell"></div>
+                <div class="col-12 justify-content-center" id="alarmBell" aria-label="Alarm bell symbol" ></div>
             </div>
         </div>
 
@@ -148,7 +150,7 @@
                                                 <option value="59">59</option>
                                             </select>
                                             <!-- Alarm On / Off Switch -->
-                                            <button class="btn btn-shape btn-green" id="startStop" type="button">Set Alarm</button>
+                                            <button class="btn btn-shape btn-green" id="startStop" type="button" aria-label="Set or clear alarm" >Set Alarm</button>
                                         </div>
                                     </form>
                                 </div>
@@ -160,13 +162,7 @@
         </div>
 
         <!-- Alarm Sound -->
-        <audio id="alarmSound">
-            <!-- No Browser support for Edge / IE -->
-            <source src="assets/audio/07070161.wav" type="audio/mpeg">
-            <!-- Edge / IE, Chrome, Firefox, Safari & Opera Browser support -->
-            <source src="assets/audio/07070161.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+        <audio id="alarmSound" src="assets/audio/07070161.mp3"></audio>
         
         <script type="text/javascript" src="assets/js/clock.js"></script>
         <script type="text/javascript" src="assets/js/worldClock.js"></script>

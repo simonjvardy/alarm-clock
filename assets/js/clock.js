@@ -1,16 +1,19 @@
+/*jslint white: true */
+/*jshint esversion: 6 */
 // Code credit: Adapted from various tutorials on the following sites
 // http://www.dhtmlgoodies.com/tutorials/canvas-clock/
 // http://www.jquery2dotnet.com/2012/11/html5-clocks.html
 // http://www.script-tutorials.com/html5-clocks/
 // https://www.w3schools.com/graphics/canvas_clock.asp
 
+
 const canvas = document.getElementById('clockCanvas');// Get the javascript DOM reference to the canvas tag
 const context = canvas.getContext('2d'); // The context method contains all the properties which we will use to draw on the canvas
 
-const clockFaceImg = new Image();  // Create a new HTMLImageElement instance
-let clockFaceImgLoaded = false;  // Set the initial state of the clockFaceImgLoaded flag to false
-
-// Ensure the image has loaded from the server before drawing anything on the canvas - clockFaceImgLoaded returns true once the image is loaded
+// Ensure the image has loaded from the server before drawing anything on the canvas
+// clockFaceImgLoaded returns true once the image is loaded
+const clockFaceImg = new Image();
+let clockFaceImgLoaded = false;
 clockFaceImg.onload = function() {
     clockFaceImgLoaded = true;
 }
@@ -28,15 +31,26 @@ function convertDegreeToRadians(deg) {
     return (Math.PI / 180) * deg
  } 
 
+/*
 
+*/
 // Create the clock hour hand
 function createHourHand(currentDate) {
-    let hrs = currentDate.getHours() + currentDate.getMinutes() / 60;  // Adding Minutes value / 60 lets the hour hand move smoothly from hour to hour
-    let degrees = (hrs * 360 / 12) % 360;  // Modulus operator just calculates the the same rotation for the 24hr clock values e.g. 03:00 or 15:00 = 90° rotation
-    context.save();  // Save the "zero rotation" start point of the canvas
-    context.fillStyle = 'black'; 
-    context.rotate(convertDegreeToRadians(degrees));  // for each hour value, the hand will rotate 30 degrees (30 x 12 = 360)
-    createHand(138, 7, 3);  // Draw the hour hand with size, thickness and shadow arguments
+    // Adding Minutes value / 60 lets the hour hand move smoothly from hour to hour
+    let hrs = currentDate.getHours() + currentDate.getMinutes() / 60;
+
+    // Modulus operator just calculates the the same rotation for the 24hr clock values e.g. 03:00 or 15:00 = 90° rotation
+    let degrees = (hrs * 360 / 12) % 360;
+
+    // Save the "zero rotation" start point of the canvas
+    context.save();
+    context.fillStyle = 'black';
+
+    // for each hour value, the hand will rotate 30 degrees (30 x 12 = 360)
+    context.rotate(convertDegreeToRadians(degrees));
+
+    // Draw the hour hand with size, thickness and shadow arguments
+    createHand(138, 7, 3);
     context.restore();  // Return the canvas rotation back to the initial save point, ready for the next rotation function
 }
 
