@@ -14,29 +14,30 @@
 }
 
 /* ------------------------------------- Background Colour Animation  */
-/* CSS Styling created with https://www.gradient-animator.com/ */
+
 
 body {
     text-align: center;
-    background: linear-gradient(312deg, #22577a, #38a3a5, #57cc99, #80ed99, #c7f9cc);
-    background-size: 1000% 1000%;
 
-    -webkit-animation: scrolling-gradient 30s ease infinite;
-    -moz-animation: scrolling-gradient 30s ease infinite;
-    animation: scrolling-gradient 30s ease infinite;
+    /* CSS Styling and animation keyframes created with https://www.gradient-animator.com/ */
+    background: linear-gradient(270deg, #f72585, #b5179e, #7209b7, #560bad, #480ca8, #3a0ca3, #3f37c9, #4361ee, #4895ee, #4cc9f0);
+    background-size: 2000% 2000%;
+    -webkit-animation: linear-gradient 30s ease infinite;
+    -moz-animation: linear-gradient 30s ease infinite;
+    animation: linear-gradient 30s ease infinite;
 }
 
-@-webkit-keyframes scrolling-gradient {
+@-webkit-keyframes linear-gradient {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-@-moz-keyframes scrolling-gradient {
+@-moz-keyframes linear-gradient {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-@keyframes scrolling-gradient {
+@keyframes linear-gradient {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
@@ -61,7 +62,7 @@ body {
 
 /* -------------------------------------Bell Icon */
 
-div .bell-icon {
+#alarmBell {
     font-size: 50px;
     width: 100%;
     height: auto;
@@ -128,16 +129,43 @@ div .bell-icon {
 }
 
 .card-header:hover {
-    background-color: #C7F9CC;
+    background-color: #a2e5fa;
     border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
 /* -------------------------------------Accordion buttons */
 
+.btn-shape {
+    height: 40px;
+    width: 100px;
+    border-radius: 15px 0;
+    font-style: sans-serif;
+}
+
 .btn-green {
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #28A745;
+    border-color: #28A745;
+}
+
+.btn-green:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+    box-shadow: 0 0 0 .2rem rgba(72,180,97,.5);
+}
+
+.btn-red {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-red:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130;
+    box-shadow: 0 0 0 .2rem rgba(225,83,97,.5);
 }
 
 .btn-link {
