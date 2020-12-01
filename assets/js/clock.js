@@ -36,7 +36,7 @@ function createHourHand(currentDate) {
     context.save();  // Save the "zero rotation" start point of the canvas
     context.fillStyle = 'black'; 
     context.rotate(convertDegreeToRadians(degrees));  // for each hour value, the hand will rotate 30 degrees (30 x 12 = 360)
-    createHand(110, 7, 3);  // Draw the hour hand with size, thickness and shadow arguments
+    createHand(138, 7, 3);  // Draw the hour hand with size, thickness and shadow arguments
     context.restore();  // Return the canvas rotation back to the initial save point, ready for the next rotation function
 }
 
@@ -46,7 +46,7 @@ function createMinuteHand(currentDate) {
     context.save();  
     context.fillStyle = 'black';  
     context.rotate(convertDegreeToRadians(min * 6));  // for each minute value, the hand will rotate 6 degrees (60 x 6 = 360)
-    createHand(130, 7, 5);
+    createHand(163, 7, 5);
     context.restore();      
 }
 
@@ -56,7 +56,7 @@ function createSecondHand(currentDate) {
     context.save(); 
     context.fillStyle = 'red';
     context.rotate(convertDegreeToRadians(sec * 6));  // for each seconds value, the hand will rotate 6 degrees (60 x 6 = 360)
-    createHand(150);
+    createHand(188);
     context.restore();
 }
 
@@ -66,12 +66,12 @@ function writeAMPM(currentDate) {
     let hours = currentDate.getHours();
     let am_pm = hours >= 12 ? 'PM' : 'AM';  //  if the hours value is grater than 12 then set the value to PM else AM
     let textSize = context.measureText(am_pm);  // returns the height and width of the text for the font properties
-    context.fillText(am_pm, 0 - textSize.width / 2,-40);  // Draws the text and positions the text centered about the y=0 x=-40 position
+    context.fillText(am_pm, 0 - textSize.width / 2,-63);  // Draws the text and positions the text centered about the y=0 x=-40 position
     context.fillStyle = "#777777";
 }
 
 function writeDate(currentDate) {
-    context.font = "12pt Serif"; // Set the text font properties
+    context.font = "18pt Serif"; // Set the text font properties
     let year = currentDate.getFullYear();  // Get the 4 digit year from the date
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let month = months[currentDate.getMonth()];  // Converts the date month value into the month name from the months array
@@ -80,7 +80,7 @@ function writeDate(currentDate) {
     let day = days[currentDate.getDay()];  // converts the day of the week number into the day name from the days array
     let dateString = day + " " + dayNumber + " " + month + ", " + year;
     let textSize = context.measureText(dateString);  // returns the height and width of the text for the font properties
-    context.fillText(dateString, 0 - textSize.width / 2, 60);  // Draws the text and positions the text centered about the y=0 x=-40 position
+    context.fillText(dateString, 0 - textSize.width / 2, 63);  // Draws the text and positions the text centered about the y=0 x=-40 position
 }
 
 // All the hands are a similar stretched diamond shapes, so this function prevents repetition of code

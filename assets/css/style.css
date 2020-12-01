@@ -132,6 +132,14 @@ div .bell-icon {
     border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
+/* -------------------------------------Accordion buttons */
+
+.btn-green {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
 .btn-link {
     font-weight: 400;
     color: #444;
