@@ -1,7 +1,8 @@
-// Code adapted from// https://www.youtube.com/watch?v=v3kDlRx0c5M
+/*jslint white: true */
 /*jshint esversion: 6 */
+// Code adapted from// https://www.youtube.com/watch?v=v3kDlRx0c5M
 
-// Get the DOM Elements for the Alarm Clock setion
+// Get the DOM Elements for the Alarm Clock section
 const alarmHrs = document.getElementById("alarmHrs");
 const alarmMins = document.getElementById("alarmMins");
 const startStop = document.getElementById("startStop");
