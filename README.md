@@ -104,14 +104,19 @@ I have chosen [Castoro](https://fonts.googleapis.com/css2?family=Castoro&display
 
 ### Colours ###
 
-I have chosen the colours that blend and transition smoothly together. The animated background gradient colours give a pleasing, subtle effect and allows the clock face and accordions to stand out.
-![Colour palette](wireframes/coolors-palette-sm.png)
+I have chosen the colours that blend and transition smoothly together. The animated background gradient colours give a rich, vibrant effect and allows the clock face and accordions to stand out.
+![Colour palette](wireframes/coolors-palette2-sm.png)
 
-- *Blue Sapphire* (22577A) - Dark Blue
-- *Cadet Blue* (38A3A5) - Turquoise
-- *Medium Aquamarine* (57CC99) - Blue / Green
-- *Light Green* (80ED99) - Light Green
-- *Tea Green* (c7F9CC) - Pale Green
+- *Flickr Pink* (F72585) - Rich Pink
+- *Byzantine* (B5179E) - Dark Pink
+- *Purple* (7209B7) - Purple
+- *Purple* (560BAD) - Purple
+- *Trypan Blue* (480CA8) - Purple / Blue
+- *Trypan Blue* (3A0CA3) - Purple / Blue
+- *Persian Blue* (3F37C9) - Lighter Purple / Blue
+- *Ultramarine Blue* (4361EE) - Mid Blue
+- *Dodger Blue* (4895EF) - Blue
+- *Vivid Sky Blue* (4CC9F0) - Sky Blue
 
 These colours will compliment each other well when they transition from one colour to another to create a subtle but pleasing background.
 
@@ -360,6 +365,7 @@ The following websites were used as the starting point and inspiration for creat
 - [dhtmlgoodies.com](http://www.dhtmlgoodies.com/tutorials/canvas-clock/) Excellent HTML Canvas clock tutorial
 - [jQuery2DotNet](https://jsfiddle.net/lesson8/ezhzq/) HTML Canvas clock code example.
 - [Script Tutorials](http://www.script-tutorials.com/html5-clocks/) HTML Canvas clock code example.
+- [joylearn YouTube channel](https://www.youtube.com/watch?v=v3kDlRx0c5M) JavaScript alarm clock tutorial.
 
 
 
