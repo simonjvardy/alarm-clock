@@ -1,5 +1,6 @@
 /*jslint white: true */
 /*jshint esversion: 6 */
+
 // Code adapted from// https://www.youtube.com/watch?v=v3kDlRx0c5M
 
 // Get the DOM Elements for the Alarm Clock section
@@ -9,7 +10,10 @@ const startStop = document.getElementById("startStop");
 const alarmDisplay = document.getElementById("alarmSound");
 const bellIconDiv = document.getElementById("alarmBell");
 
-// initial page load shows the bell-slash icon to show the alarm is not set
+/*
+initial page load shows the bell-slash icon to show
+ the alarm is not set
+ */
 bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
 
 // Declare the alarm calculation variables
@@ -17,13 +21,17 @@ let currentTime;
 let alarmElement;
 let alarmActive = false;
 
-// Get the current time and compare to the alarm time set
-// by the user once per second
+/*
+Get the current time and compare to the alarm time set
+by the user once per second
+*/
 function alarmTime() {
   let now = new Date();
 
-  // Return the time portion of a Date object as a string
-  // in the format "hh:mm:ss"
+  /*
+  Return the time portion of a Date object as a string
+  in the format "hh:mm:ss"
+  */
   currentTime = now.toLocaleTimeString();
   if (currentTime === alarmElement) {
     alarmDisplay.play();
@@ -38,7 +46,10 @@ alarmTime();
 startStop.onclick = function () {
   if (alarmActive === false) {
 
-    // Disable the alarm Hours and minutes selectors when the alarm is set
+    /*
+    Disable the alarm Hours and minutes selectors when
+    the alarm is set
+    */
     alarmHrs.disabled = true;
     alarmMins.disabled = true;
     alarmElement = alarmHrs.value + ":" + alarmMins.value + ":00";
@@ -52,7 +63,10 @@ startStop.onclick = function () {
 
     alarmActive = true;
   } else {
-    // Enable the alarm Hours and minutes selectors when the alarm is not set
+    /*
+    Enable the alarm Hours and minutes selectors when the
+    alarm is not set
+    */
     alarmHrs.disabled = false;
     alarmMins.disabled = false;
     alarmDisplay.pause();
