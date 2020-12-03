@@ -208,28 +208,32 @@ function writeDate(currentDate) {
 
     // Get the 4 digit year from the date
     let year = currentDate.getFullYear();
-    const months = ["January", "February", "March", "April", "May",
-        "June", "July", "August", "September", "October", "November",
-        "December"];
 
     /*
     Converts the date month value into the month
     name from the months array
     */
+   const months = ["January", "February", "March", "April", "May",
+   "June", "July", "August", "September", "October", "November",
+   "December"];
     let month = months[currentDate.getMonth()];
 
     // The day of the month
     let dayNumber = currentDate.getDate();
-    const days = ['Mon', 'Tues','Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
+    
 
     /*
     converts the day of the week number into
     the day name from the days array
     */
+    const days = ['Mon', 'Tues','Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
     let day = days[currentDate.getDay()];
+
+    // String concatenation of the full date text to be displayed
     let dateString = day + " " + dayNumber + " " + month + ", " + year;
 
-    /*returns the height and width of the text
+    /*
+    returns the height and width of the text
      for the font properties
      */
     let textSize = context.measureText(dateString);
