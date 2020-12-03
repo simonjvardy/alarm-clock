@@ -12,7 +12,7 @@ const bellIconDiv = document.getElementById("alarmBell");
 
 /*
 initial page load shows the bell-slash icon to show
- the alarm is not set
+the alarm is not set
  */
 bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
 
@@ -23,11 +23,11 @@ let alarmActive = false;
 
 /*
 Get the current time and compare to the alarm time set
-by the user once per second
+by the user once per second. if there is equality then
+play the alarm sound and shake the alarm bell icon
 */
 function alarmTime() {
   let now = new Date();
-
   /*
   Return the time portion of a Date object as a string
   in the format "hh:mm:ss"
@@ -43,9 +43,14 @@ function alarmTime() {
 }
 alarmTime();
 
+/*
+The alarm button changes text and colour when clicked
+to show alarm set and cleared states. The hours
+and minutes selectors are disabled while the
+alarm is set.
+*/
 startStop.onclick = function () {
   if (alarmActive === false) {
-
     /*
     Disable the alarm Hours and minutes selectors when
     the alarm is set
