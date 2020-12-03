@@ -37,7 +37,7 @@ clock where a city name can be searched for and the current local time for that 
   - [Clock](#clock)
   - [Drawing the Clock Hands](#drawing-the-clock-hands)
   - [Clock Face Text](#clock-face-text)
-  - [Alarm Function](#alarm-function)
+  - [Alarm](#alarm)
 - [Version Control](#version-control)
     - [Gitpod Workspaces](#gitpod-workspaces)
     - [Branches](#branches)
@@ -286,7 +286,7 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - Note: Early testing showed that the clock canvas context method failed to draw anything if the background image hadn't fully loaded. This was resolved using a `.onload` EventHandler property setting a 100ms timeout to check whether the background image has loaded fully before calling the main `createClock()` function to draw the clock hands.
   - To draw each clock hand in the correct position:
     - The canvas is rotated about the centre of the canvas by a calculated angle corresponding to the current time value, drawing the hand before being returned back to the starting point again, ready to be rotated once more for the new time value.
-    - The context `.rotate(Radians)` method is used to rotate the canvas and takes an angle in Radians as an argument. It was easier to imagine rotation angles in degrees instead of Radians so a small utility function is used to convert degrees to Radians by returning `(Math.PI / 180) * degrees` and passing this result as an argument in the `.rotation()` method.
+    - The context `.rotate(Radians)` method is used to rotate the canvas and takes an angle in Radians as an argument. It was easier to imagine rotation angles in degrees instead of Radians so a small utility function is used to convert degrees to Radians by returning `(Math.PI / 180) * degrees` and passing this result as an argument in the `.rotate()` method.
 
 ### Drawing the Clock Hands ###
 
@@ -302,7 +302,7 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 
 - Seconds hand rotation calculation:
   - The formula used to calculate the seconds rotation angle is `(seconds value * 360 / 60)` so each second rotates 6°. 
-  - The seconds hand doesn't sweep but instead shows as a noticeable "ticking" hand; jumping from second to second.
+  - The seconds hand doesn't sweep but instead shows as a noticeable "ticking" hand; jumping from second to second, which I like.
   
 - Canvas Rotation:
   - To draw the clock hands at the correct clock position, a hand is drawn after the canvas has been rotated about its central point.
@@ -323,9 +323,9 @@ The final wireframes were created using Balsamiq adapted from the original hand 
     - This is mapped to an array of month names where the `.getMonth()` value is passed as the array index to return the correct month name.
   - The date is returned using the `.getDate()` method of the `Date()` object.
   - The day is returned using the `.getDay()` method of the `Date()` object.
-    - This is mapped to an array of days of the week name where the `.getDay()` value is passed as the array index to return the correct day of the week.
+    - This is mapped to an array of days of the week names where the `.getDay()` value is passed as the array index to return the correct day of the week.
 
-### Alarm Function ###
+### Alarm ###
 
 
 ---
