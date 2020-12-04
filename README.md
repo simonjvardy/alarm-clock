@@ -4,7 +4,7 @@ The idea for this project is to display a running analogue clock that shows both
 clock where a city name can be searched for and the current local time for that city will be displayed.
 
 
-![Responsive Layout Screenshots](/wireframes/am-i-responsive.jpg) 
+![Responsive Layout Screenshots](assets/img/am-i-responsive.png) 
 
 
 
@@ -37,7 +37,7 @@ clock where a city name can be searched for and the current local time for that 
   - [Clock](#clock)
   - [Drawing the Clock Hands](#drawing-the-clock-hands)
   - [Clock Face Text](#clock-face-text)
-  - [Alarm Function](#alarm-function)
+  - [Alarm](#alarm)
 - [Version Control](#version-control)
     - [Gitpod Workspaces](#gitpod-workspaces)
     - [Branches](#branches)
@@ -209,6 +209,7 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 ---
 ## Features ##
 
+
 ### Features Implemented ###
 
 ### Responsive Design ###
@@ -218,6 +219,7 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - The clock face is displayed within a 500px x 500px HTML5 canvas element which responsively resizes and scales correctly for smaller display sizes.
   - The alarm setting are contained within an accordion to keep the layout clean and keep scrolling to a minimum on smaller display heights.
   - a continuously transitioning background colour to give a rich, vibrant, colourful display; creating contrast with the clock face and alarm settings
+
 
 ### Interactive Elements ###
 
@@ -229,35 +231,36 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   
       ![Analogue Clock Face](assets/img/readme-features-clock.png)
 
-  - A bell icon is used as a visual cue for the alarm state. 
-    - A bell icon shows the alarm is set and with a diagonal slash to show the alarm is not set.
+  - A **bell icon** is used as a **visual cue** for the alarm state. 
+    - A **bell icon** shows the alarm is **set** and with a **diagonal slash** to show the alarm is **not set**.
   
       ![Alarm Bell Icon](assets/img/readme-features-bell.png)  ![Alarm Bell-slash Icon](assets/img/readme-features-bell-slash.png)
 
-    - An additional feature of the bell icon is that the icon "shakes" when the alarm has triggered to assist with accessibility.
-  - An alarm clock with time selection inputs for hours and minutes along with an alarm set / cancel button. 
-    - The alarm setting are contained within an accordion to keep the layout clean and keep scrolling to a minimum on smaller display heights.
+    - An additional feature of the **bell icon** is that the icon **"shakes"** when the alarm has triggered to assist with **accessibility**.
+  - An alarm clock with time **selection** inputs for **hours** and **minutes** along with an **alarm set / cancel button**. 
+    - The **alarm setting** are contained within an **accordion** to keep the layout clean and keep scrolling to a minimum on smaller display heights.
   
       ![Alarm inactive](assets/img/readme-features-alarm-inactive.png)
 
-    - Once the alarm has been set, the hours and minutes selectors are disabled to prevent accidental changes to the set alarm time. They become active again when the alarm has been cancelled.
+    - Once the alarm has been set, the hours and minutes selectors are **disabled** to prevent accidental changes to the set alarm time. They become **active** again when the alarm has been **cancelled**.
 
       ![Alarm active](assets/img/readme-features-alarm-active.png)
 
-    - For ease of use, the alarm button toggles between a green "Set Alarm" button to a red "Clear Alarm" button when clicked.
-    - When the alarm is triggered, an audio file is played which can be paused by clicking the red "Clear Alarm" button.
+    - For ease of use, the alarm button toggles between a green **"Set Alarm"** button to a red **"Clear Alarm"** button when clicked.
+    - When the alarm is triggered, an **audio file** is played which can be paused by clicking the red **"Clear Alarm"** button.
 
 
 ### Future Features ###
 
-- This small app has the potential to be expanded with additional features:
-  - Light / dark mode selection button
-  - Allow multiple alarms to be set and activated independently
-  - Display local weather information from APIs such as OpenWeatherMap.org
-  - Display multiple clock faces to allow users to show times for a city in a different timezone using APIs such as Google Time Zone.
+- This small app has the potential to be expanded with **additional features**:
+  - **Light / dark mode** selection button
+  - Allow **multiple alarms** to be set and activated independently
+  - Display **local weather** information from **APIs** such as OpenWeatherMap.org
+  - Display **multiple clock faces** to allow users to show times for a city in a different timezone using **APIs** such as Google Time Zone.
   
 
 ### Site Construction  ###
+
 
 ### Page Layout ###
 - Body
@@ -266,6 +269,7 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - A Bootstrap accordion single card that expands to reveal the alarm clock settings with selectors for alarm hours minutes and an alarm set / clear button.
   
     ![Clock face, bell icon and alarm settings](assets/img/readme-features-page-layout.png)
+
 
 ### Construction Table ###
 
@@ -278,33 +282,37 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 | Home | Alarm accordion button | alarm.js |
 | Home | Bell icon | alarm.js |
 
+
 ### Clock ###
 
-- The clock is created and drawn on the canvas using the following:
-  - An HTML5 `<canvas></canvas>` element using the `.getContext('2d')` method which contains all the properties that will be used to draw on the canvas; within the constraints of the canvas element height and width.
-  - The clock face is a background image file cropped into a circle. This was done in Photoshop CS4 as the original square image looked wrong in early development.
-  - Note: Early testing showed that the clock canvas context method failed to draw anything if the background image hadn't fully loaded. This was resolved using a `.onload` EventHandler property setting a 100ms timeout to check whether the background image has loaded fully before calling the main `createClock()` function to draw the clock hands.
-  - To draw each clock hand in the correct position:
-    - The canvas is rotated about the centre of the canvas by a calculated angle corresponding to the current time value, drawing the hand before being returned back to the starting point again, ready to be rotated once more for the new time value.
-    - The context `.rotate(Radians)` method is used to rotate the canvas and takes an angle in Radians as an argument. It was easier to imagine rotation angles in degrees instead of Radians so a small utility function is used to convert degrees to Radians by returning `(Math.PI / 180) * degrees` and passing this result as an argument in the `.rotation()` method.
+The [clock flowchart](wireframes/clock-flowchart.pdf) show the code logic for the alarm and clock functions.
+
+- The clock is created and drawn on the **canvas** using the following:
+  - An HTML5 `<canvas></canvas>` element using the `.getContext('2d')` method which contains all the **properties** that will be used to draw on the canvas; within the constraints of the canvas element **height and width**.
+  - The **clock face** is a background image file cropped into a **circle**. This was done in **Photoshop CS4** as the original square image looked wrong in early development.
+  - ***Note:*** Early testing showed that the clock canvas context method **failed** to draw anything if the background image **hadn't fully loaded**. This was **resolved** using a `.onload` **EventHandler property** setting a 100ms timeout to check whether the background image has loaded fully before calling the main `createClock()` function to draw the clock hands.
+  - To **draw** each clock hand in the correct position:
+    - The canvas is **rotated** about the **centre of the canvas** by a calculated angle corresponding to the current time value, drawing the hand before being returned back to the starting point again, ready to be rotated once more for the new time value.
+    - The context `.rotate(Radians)` method is used to **rotate** the canvas and takes an angle in **Radians** as an argument. It was easier to imagine **rotation angles** in **degrees** instead of Radians so a small utility function is used to **convert** degrees to Radians by returning `(Math.PI / 180) * degrees` and passing this result as an argument in the `.rotate()` method.
+
 
 ### Drawing the Clock Hands ###
 
-- Each clock hand has the same basic shape so a common function to draw the hand shape, with hand dimensions passed as parameters, is used which can be called when defining the hours, minutes and seconds hands.
-- Hours hand rotation calculation:
-  - The formula used to calculate the hours rotation angle is `(hours value * 360 / 12) % 360` so each hour rotates 30°.
-  - The `% 360` is really just a nice to have but not essential to the formula. The `Date()` object returns a time value in a 24hrs format. The modulus just returns the same degrees value for 13-23 hours as for 0-12 e.g. 03:00 or 15:00 returns 90° rotation angle. Without the `% 360` 15:00 returns 450° rotation angle which is the same end result.
-  - With a 30° angle between each hour on the clock face, the hour hand will make large jumps from hour to hour. To replicate a real clock hand movement, the hour hand rotation angle is combined with the minutes value: `hours value + (minutes value / 60)` to divide the movement between hours numbers into 1/60 segments. As the minutes increase, the hour hand slowly transitions towards the next hour in proportion to the minutes value.
+- Each **clock hand** has the same **basic shape** so a **common function** to draw the hand shape, with **hand dimensions** passed as **parameters**, is used which can be called when defining the hours, minutes and seconds hands.
+- **Hours hand rotation calculation:**
+  - The **formula** used to calculate the **hours rotation angle** is `(hours value * 360 / 12) % 360` so each hour rotates **30°**.
+  - The `% 360` is really just a nice to have but not essential to the formula. The `Date()` object returns a time value in a **24hrs format**. The **modulus** just returns the same degrees value for **13-23 hours** as for **0-12** e.g. **03:00** or **15:00** returns **90°** rotation angle. Without the `% 360` **15:00** returns **450°** rotation angle which is the same end result.
+  - With a **30°** angle between each hour on the clock face, the hour hand will make large jumps from hour to hour. To replicate a real clock hand movement, the **hour hand** rotation angle is **combined** with the **minutes value**: `hours value + (minutes value / 60)` to divide the movement between hours numbers into **1/60 segments**. As the minutes increase, the hour hand **slowly transitions** towards the next hour in **proportion** to the **minutes value**.
 
-- Minutes hand rotation calculation:
-  - The formula used to calculate the minutes rotation angle is `(minutes value * 360 / 60)` so each minute rotates 6°.
-  - As with the hours hand, the minutes hand needs to move smoothly so the minute hand rotation angle is combined with the seconds value: `minutes value + (seconds value / 60)` to divide the movement between minutes numbers into 1/60 segments. As the seconds increase, the minute hand slowly transitions towards the next minute in proportion to the seconds value.
+- **Minutes hand rotation calculation:**
+  - The **formula** used to calculate the **minutes rotation angle** is `(minutes value * 360 / 60)` so each minute rotates **6°**.
+  - As with the hours hand, the minutes hand needs to move smoothly so the **minute hand** rotation angle is **combined** with the **seconds value**: `minutes value + (seconds value / 60)` to divide the movement between minutes numbers into **1/60 segments**. As the seconds increase, the minute hand **slowly transitions** towards the next minute in **proportion** to the **seconds value**.
 
-- Seconds hand rotation calculation:
+- **Seconds hand rotation calculation:**
   - The formula used to calculate the seconds rotation angle is `(seconds value * 360 / 60)` so each second rotates 6°. 
-  - The seconds hand doesn't sweep but instead shows as a noticeable "ticking" hand; jumping from second to second.
+  - The seconds hand doesn't sweep but instead shows as a noticeable "ticking" hand; jumping from second to second, which I like.
   
-- Canvas Rotation:
+- **Canvas Rotation:**
   - To draw the clock hands at the correct clock position, a hand is drawn after the canvas has been rotated about its central point.
   - Canvases normally rotate around the `0,0 (x,y)` coordinates, which is the top left corner of the canvas.
   - To rotate the clock hands, the rotation axis needs to be in the vertical and horizontal center of the canvas. For a 500px x 500px canvas this is at coordinates `250,250`. To move the centre point of the canvas, the context translate method is passed the canvas dimensions divided by two: `context.translate(canvas.width/2, canvas.height/2);`.
@@ -312,20 +320,22 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - The unfortunate downside to this approach is the background image is loaded from the new `0,0` coordinates in the centre of the canvas and now only covers the bottom right corner of the canvas!
     - To correct this, the canvas drawImage() method is passed the following arguments `context.drawImage(clockFaceImg, canvas.width/2 * -1, canvas.height/2 * -1, canvas.width, canvas.height);` to define the `HTMLImageElement`, starting x,y coordinates and the image width & height. This translates to `-250,-250` coordinates with the canvas width and height as `500px`.
 
+
 ### Clock Face Text ###
 - The text is written to the canvas using the `context.fillText()` method.
-- AM / PM text:
+- **AM / PM text:**
   - The AM / PM indicator is determined by getting the current time hours value, returned using the `getHours()` method of the `Date()` object, and applying the following conditional (ternary) operator `(hours >= 12 ? 'PM' : 'AM')` to see if the hours value is greater than 12 or not.
 
-- The date text:
+- **The date text:**
   - The year is returned using the `.getFullYear()` method of the `Date()` object.
   - The Month is returned using the `.getMonth()` method of the `Date()` object.
     - This is mapped to an array of month names where the `.getMonth()` value is passed as the array index to return the correct month name.
   - The date is returned using the `.getDate()` method of the `Date()` object.
   - The day is returned using the `.getDay()` method of the `Date()` object.
-    - This is mapped to an array of days of the week name where the `.getDay()` value is passed as the array index to return the correct day of the week.
+    - This is mapped to an array of days of the week names where the `.getDay()` value is passed as the array index to return the correct day of the week.
 
-### Alarm Function ###
+
+### Alarm ###
 
 
 ---
@@ -339,14 +349,17 @@ The following describes the repository branch structure:
 
 The following workflow steps are used to create and update branches within Gitpod and to push changes back to GitHub.
 
+
 #### Gitpod Workspaces ####
 1. Open **Gitpod** from **Github** using the Gitpod button. This needs to only be done **once** at the start of the project.
 2. Start the Gitpod Workspace which opens an **online IDE editor** window.
+
 
 #### Branches ####
 3. For changes to be made to any **documentation files**, the git command `git checkout documentation` is used to checkout and switch to the **documentation branch**.
 4. For changes to be made to **other files** under normal site development, the git command `git checkout development` is used to checkout and switch to the **development branch**.
 5. To create a **new branch** for bug fixes, use the git command `git checkout -b <branch-name>` to **create and switch** to the new branch.
+
 
 #### Working within a branch ####
 6. **New** or **modified** files are **staged** using the `git add .` command
@@ -354,10 +367,12 @@ The following workflow steps are used to create and update branches within Gitpo
 8. If the changes are in a newly created branch, the **committed** changes are **pushed** from Gitpod to GitHub using the `git push --set-upstream origin <branch-name>` command as there is currently no upstream branch in the remote repository.
 9. For branches that have already been synchronized, the **committed** changes are **pushed** from Gitpod to GitHub using the `git push` command.
 
+
 #### Merging branches in GitHub ####
 10. Opening the repository in Github, a new **pull request** is created for the updated branch and assigned to the **Development project**.
 11. The changes are **reviewed** to ensure there are **no conflicts** between the **updated branch** and the **Master branch**.
 12. The changes are then **merged** into the **Master branch** and the merge request is **closed**. The **Project entry** is **automatically** moved to the **Done** card.
+
 
 #### Update Gitpod with the latest GitHub commits ####
 13. To update Gitpod with the **latest commits** From GitHub, the `git checkout master` command is used to checkout and switch to the master branch.

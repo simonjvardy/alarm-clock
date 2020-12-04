@@ -9,7 +9,7 @@
 }
 
 .row,
-.container {
+.container-fluid {
         overflow-x: hidden;
 }
 
@@ -55,8 +55,8 @@ body {
 #clockCanvas {
     width: 100%;
     height: auto;
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 500px;
+    max-height: 500px;
     margin: 10vh auto 0 auto;
 }
 
@@ -96,6 +96,14 @@ body {
 
 
 /* -------------------------------------Accordion cards*/
+
+.accordion {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    max-height: 500px;
+    margin: 0 auto 0 auto;
+}
 
 .accordion > .card {
     border-radius: 40px 0 40px 0;
@@ -183,7 +191,42 @@ body {
 
 /* -------------------------------------FOOTER SECTION */
 
+.footer-container h4 {
+    /*font-family: 'Oswald', sans-serif;*/
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  .social-media ul li {
+    font-size: 1.6rem;
+    padding: 2%;
+  }
+  
+  .social-media ul li a {
+      color: #444;
+  }
+  
+  .social-media ul li a:hover {
+      color: #fff;
+  }
+  
+  .icon-bg-sm ul li a i {
+    height: 50px;
+    width: 50px;
+    padding: 12px 0;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    margin: auto;
+  }
+  
+  .icon-bg-sm ul li a i:hover {
+      background-color: #444;
+  }
 
+  .copyright {
+      color: #fff;
+  }
 
 /* -------------------------------------Media Queries */
 /* -------------------------------------Responsive Design - mobile */
@@ -192,8 +235,8 @@ body {
     #clockCanvas {
         width: 100%;
         height: auto;
-        max-width: 400px;
-        max-height: 400px;
-        margin: 20px auto;
+        max-width: 500px;
+        max-height: 500px;
+        margin: 20px auto 0 auto;
     }
 }
