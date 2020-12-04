@@ -9,6 +9,7 @@ http://www.script-tutorials.com/html5-clocks/
 https://www.w3schools.com/graphics/canvas_clock.asp
 */
 
+
 // Get the javascript DOM reference to the canvas tag
 const canvas = document.getElementById('clockCanvas');
 
@@ -179,7 +180,7 @@ function createSecondHand(currentDate) {
 // Write text on the clock face
 function writeAMPM(currentDate) {
     // Set the text font properties
-    context.font = "18pt Serif";
+    context.font = "24pt Serif";
     let hours = currentDate.getHours();
 
     /*
@@ -204,7 +205,7 @@ function writeAMPM(currentDate) {
 
 function writeDate(currentDate) {
     // Set the text font properties
-    context.font = "18pt Serif";
+    context.font = "20pt Serif";
 
     // Get the 4 digit year from the date
     let year = currentDate.getFullYear();
