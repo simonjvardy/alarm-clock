@@ -228,7 +228,7 @@ function writeDate(currentDate) {
     the day name from the days array
     */
     const days = ['Mon', 'Tues','Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
-    let day = days[currentDate.getDay()];
+    let day = days[currentDate.getDay() - 1];
 
     // String concatenation of the full date text to be displayed
     let dateString = day + " " + dayNumber + " " + month + ", " + year;
