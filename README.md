@@ -355,7 +355,10 @@ The [alarm flowchart](wireframes/alarm-flowchart.pdf) show the code logic for th
 
 
 - The `alarmTime()` function gets the current time from a Date() object created with `new Date()`.
-  - The current time is returned from the Date() object using the `.toLocaleTimeString()` method in the format "hh:mm:ss".
+  - The current time is returned from the Date() object using string concatenation of the `.getHours()`, `.getMinutes()` amd `.getSeconds()` methods in the format "hh:mm:ss" for cross-browser support.
+    - This replaced the original `.toLocaleTimeString()` method as the returned string format is different between browser developers:
+      - Firefox returns the time string in the format "hh:mm:ss" as a 24hr format.
+      - Chrome and Edge returns the time string in the format "hh:mm:s AM" as a 12hr format.
   - The set alarm time is compared to the current time every second. When there is equality in the string values, the audio file it triggered using the `.play()` method and the bell icon is assigned a new css class to make the icon "shake" using css animation.
 
 - The alarm is set and cleared using the `.onclick` event for the alarm button
