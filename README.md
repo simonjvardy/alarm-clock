@@ -1,7 +1,12 @@
-![World Clock](assets/favicons/apple-touch-icon.png)
+![Alarm Clock](assets/favicons/apple-touch-icon.png)
 
-The idea for this project is to display a running analogue clock that shows both the current time for the user and an additional
-clock where a city name can be searched for and the current local time for that city will be displayed.
+The idea for this project is to provide the user with an interactive alarm clock. 
+
+
+The alarm clock features a running analogue clock face that shows the user's current time and date as well as providing a interactive alarm feature. Thje user is able to select a time for the alarm to go off and can set or cancel the alarm.
+
+
+When the set alarm time is reached, the app plays an audible alarm as well as displaying visual indicator of the alarm.
 
 
 ![Responsive Layout Screenshots](assets/img/am-i-responsive.png) 
@@ -38,24 +43,24 @@ clock where a city name can be searched for and the current local time for that 
   - [Drawing the Clock Hands](#drawing-the-clock-hands)
   - [Clock Face Text](#clock-face-text)
   - [Alarm](#alarm)
+- [Project Management](#project-management)
 - [Version Control](#version-control)
     - [Gitpod Workspaces](#gitpod-workspaces)
     - [Branches](#branches)
     - [Working within a branch](#working-within-a-branch)
     - [Merging branches in GitHub](#merging-branches-in-github)
     - [Update Gitpod with the latest GitHub commits](#update-gitpod-with-the-latest-github-commits)
-- [Project Management](#project-management)
 - [Testing](#testing)
 - [Bugs](#bugs)
 - [Deployment](#deployment)
-  - [Running world-clock Locally](#running-world-clock-locally)
+  - [Running alarm-clock Locally](#running-alarm-clock-locally)
 - [Credits](#credits)
   - [Images](#images)
   - [Colour](#colour)
   - [Audio](#audio)
   - [Inspiration](#inspiration)
   - [Acknowledgements](#acknowledgements)
-- [- Accordion example code was copied and adapted for the alarm clock settings.](#--accordion-example-code-was-copied-and-adapted-for-the-alarm-clock-settings)
+
 
 ---
 
@@ -63,25 +68,22 @@ clock where a city name can be searched for and the current local time for that 
 
 ### Project Goals ###
 
-The **goal** of this project is to build a a website that displays both local and a searchable city time.
+The **goal** of this project is to build a a website that displays a running alarm clock. 
+
 
 The **features** on the website will:
 
 - Show a running analogue clock with the user's current local time.
-- Show an additional analogue clock where the user can search for the local time in another city.
 - Provide an alarm clock feature that can be set for the user's local time.
 
 I achieve this by:
 
-- Building the clock functionality using HTML `<canvas>` elements to draw the clock face and hands.
-- Using Timezone API data to return current time of cities the user has searched for.
-- Allowing the user to set an alarm time, switch the alarm on or off and an alarm cancel button.
-- Providing an option to the customers to submit their contact and request details in a form.
+- Building the clock functionality using an HTML5 `<canvas>` element to draw the clock face and hands.
+- Allowing the user to **set an alarm time**, switch the alarm on or off with a combined alarm set / cancel button.
 
 ### User Goals ###
 
 - **Show** the current local time.
-- **Search** for the local time in another city.
 - **Set** an alarm clock using the current local time.
 
 ### User Stories ###
@@ -90,16 +92,12 @@ I achieve this by:
 - As a **user**, I want to be able to see the times as AM or PM.
 - As a **user**, I want to set an alarm clock.
 - As a **user**, I want to hear an audible alarm sound and see a visual alarm cue at the set alarm time.
-- As a **user**, I want to see a second clock displaying the local time for a city I've chosen.
-- As a **user**, I want to see a search ba where I can search for a city name.
-- As a **user**, I want to see the current data and timezone information.
-- As a **user**, I want the site to remember my choices.
-- As a **user**, I want to send the site owner comments via email.
+- As a **user**, I want to see social media links to contact the site owner.
 
 ### Site Owner Goals ###
 
 - As a **site owner**, I want to create an **interactive website** to present a clean, easy to understand display of information.
-- As a **site owner**, I want the **user** to be able to have the last searched city name to be remembered for the next session.
+- As a **site owner**, I want the **user** to their current local time and date.
 - As a **site owner**, I want the **user** to be able to see errors displayed in a user friendly way.
 - As a **site owner**, I want the **user** to be able to see or hear an alarm clock.
 
@@ -113,7 +111,10 @@ I have chosen [Castoro](https://fonts.googleapis.com/css2?family=Castoro&display
 
 ### Colours ###
 
-I have chosen the colours that blend and transition smoothly together. The animated background gradient colours give a rich, vibrant effect and allows the clock face and accordions to stand out.
+I have chosen the colours that blend and transition smoothly together. The animated background gradient colours give a rich, vibrant effect that allows the clock face, accordion and social media links to stand out.
+
+
+
 ![Colour palette](wireframes/coolors-palette2-sm.png)
 
 - *Flickr Pink* (F72585) - Rich Pink
@@ -127,13 +128,13 @@ I have chosen the colours that blend and transition smoothly together. The anima
 - *Dodger Blue* (4895EF) - Blue
 - *Vivid Sky Blue* (4CC9F0) - Sky Blue
 
-These colours will compliment each other well when they transition from one colour to another to create a subtle but pleasing background.
+These colours will compliment each other well when they transition from one colour to another to create a vivid but visually pleasing background.
 
 ### Wireframes ###
 
 I designed the site mock-ups originally using pen and paper and then developing the designs further using [Balsamiq wireframes](https://balsamiq.com/).
 
-I'm focusing on defining the basic layout structure of the site and identifying how displays would change on different screen sizes such as mobile, tablet and desktop for each page.
+I focussed on defining the basic layout structure of the site and identified how displays would change on different screen sizes such as mobile, tablet and desktop for each page.
 
 #### Hand drawn drafts ####
 
@@ -171,8 +172,7 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - Loaded as part of the [Bootstrap CDN starter template](https://getbootstrap.com/docs/4.5/getting-started/introduction/#starter-template)
 - [Popper](https://popper.js.org/)
   - Loaded as part of the [Bootstrap CDN starter template](https://getbootstrap.com/docs/4.5/getting-started/introduction/#starter-template)
-- [Jasmine.js](https://jasmine.github.io/pages/getting_started.html)
-  - Used to create test-driven development of the JavaScript files
+
 
 
 ### Tools ###
@@ -207,6 +207,8 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - A raster graphics editor used to manipulate the clock face background image.
   
 ---
+
+
 ## Features ##
 
 
@@ -215,26 +217,26 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 ### Responsive Design ###
 
  - Responsive mobile first design using a [Bootstrap](https://getbootstrap.com/) framework.
-  - The site format was designed for smaller device sizes such as mobile and tablet devices to give a simple, user friendly display.
-  - The clock face is displayed within a 500px x 500px HTML5 canvas element which responsively resizes and scales correctly for smaller display sizes.
-  - The alarm setting are contained within an accordion to keep the layout clean and keep scrolling to a minimum on smaller display heights.
-  - a continuously transitioning background colour to give a rich, vibrant, colourful display; creating contrast with the clock face and alarm settings
+  - The site format was designed for **smaller** device sizes such as **mobile** and **tablet** devices to give a simple, user friendly display.
+  - The clock face is displayed within a 500px x 500px **HTML5 canvas element** which responsively resizes and scales correctly for smaller display sizes.
+  - The alarm setting are contained within an **accordion** to keep the layout clean and keep scrolling to a minimum on smaller display heights.
+  - A **continuously transitioning** background colour to give a rich, vibrant, colourful display; creating contrast with the clock face and alarm settings.
 
 
 ### Interactive Elements ###
 
 - The main features of the site are:
-  - The analogue clock face displays:
-    - The user's current local time
-    - AM / PM indicator
-    - The current day, date, month and year
+  - The **analogue** clock face displays:
+    - The user's **current local time**
+    - **AM / PM** indicator
+    - The current **day, date, month** and **year**
   
       ![Analogue Clock Face](assets/img/readme-features-clock.png)
 
   - A **bell icon** is used as a **visual cue** for the alarm state. 
     - A **bell icon** shows the alarm is **set** and with a **diagonal slash** to show the alarm is **not set**.
   
-      ![Alarm Bell Icon](assets/img/readme-features-bell.png)  ![Alarm Bell-slash Icon](assets/img/readme-features-bell-slash.png)
+      ![Alarm Bell Icon](assets/img/readme-features-bell.png) ![Alarm Bell-slash Icon](assets/img/readme-features-bell-slash.png)
 
     - An additional feature of the **bell icon** is that the icon **"shakes"** when the alarm has triggered to assist with **accessibility**.
   - An alarm clock with time **selection** inputs for **hours** and **minutes** along with an **alarm set / cancel button**. 
@@ -249,12 +251,19 @@ The final wireframes were created using Balsamiq adapted from the original hand 
     - For ease of use, the alarm button toggles between a green **"Set Alarm"** button to a red **"Clear Alarm"** button when clicked.
     - When the alarm is triggered, an **audio file** is played which can be paused by clicking the red **"Clear Alarm"** button.
 
+- Additional Site features:
+  - A friendly HTTP 404 Error landing page for site visitors to see if a requested page is unavailable or cannot be accessed.
+    - The page provides a button to click to return the visitor to the homepage.
+
+      ![404 Error](wireframes/404-img.png)
+
 
 ### Future Features ###
 
 - This small app has the potential to be expanded with **additional features**:
   - **Light / dark mode** selection button
   - Allow **multiple alarms** to be set and activated independently
+  - use **Window localStorage Property** to save the set alarm time after the browser window closes.
   - Display **local weather** information from **APIs** such as OpenWeatherMap.org
   - Display **multiple clock faces** to allow users to show times for a city in a different timezone using **APIs** such as Google Time Zone.
   
@@ -285,7 +294,8 @@ The final wireframes were created using Balsamiq adapted from the original hand 
 
 ### Clock ###
 
-The [clock flowchart](wireframes/clock-flowchart.pdf) show the code logic for the alarm and clock functions.
+
+The [clock flowchart](wireframes/clock-flowchart.pdf) show the code logic for the clock function contained in the `clock.js` file.
 
 - The clock is created and drawn on the **canvas** using the following:
   - An HTML5 `<canvas></canvas>` element using the `.getContext('2d')` method which contains all the **properties** that will be used to draw on the canvas; within the constraints of the canvas element **height and width**.
@@ -338,9 +348,75 @@ The [clock flowchart](wireframes/clock-flowchart.pdf) show the code logic for th
 ### Alarm ###
 
 
+The [alarm flowchart](wireframes/alarm-flowchart.pdf) show the code logic for the alarm function contained in the `alarm.js` file.
+
+
+- The **alarm function** gets the alarm hours and minutes values, the set / clear button clicks and the bell icon `<div>` element using the HTML DOM `document.getElementById()` method.
+
+
+- The `alarmTime()` function gets the current time from a Date() object created with `new Date()`.
+  - The current time is returned from the Date() object using the `.toLocaleTimeString()` method in the format "hh:mm:ss".
+  - The set alarm time is compared to the current time every second. When there is equality in the string values, the audio file it triggered using the `.play()` method and the bell icon is assigned a new css class to make the icon "shake" using css animation.
+
+- The alarm is set and cleared using the `.onclick` event for the alarm button
+  - The function uses an `if else` conditional statement to determine the alarm state.
+
+
+  - **Alarm Not Set**
+    - When the alarm is not set, the user can select the alarm hours and minutes input selectors to the desired time values. 
+    - The "bell-slash" icon is set using the `.innerHTML` property.
+    - The alarm button background colour is set to green by assigning a css class using the HTML DOM `.getElementById().className` property
+    - The alarm button text is changed to "Set Alarm" via the `innerHTML` property.
+
+  - **Alarm Set**
+    - When the alarm is set, the hours and minutes selectors are disabled using the `document.getElementById().disabled` property.
+    - The alarm button background colour is set to red by assigning a css class using the HTML DOM `.getElementById().className` property
+    - The alarm button text is changed to "Clear Alarm" via the `innerHTML` property.
+    - The "bell-slash" icon is replaced with the "bell" icon via the `.innerHTML` property.
+    - When the alarm is triggered, the bell icon has an additional css class assigned to make the image "shake" using the HTML DOM `.classList.add()` property.
+      - This additional class is removed on button click to clear the alarm using the HTML DOM `.classList.remove()` property.
+
 ---
+
+## Project Management ##
+
+GitHub [Projects](https://github.com/simonjvardy/alarm-clock/projects) are used to organize the planning and development of the website.
+Three GitHub projects are used to manage different aspects of the site development:
+- [Development](https://github.com/simonjvardy/alarm-clock/projects/1)
+  - Manages general project tasks and files including Documentation, HTML & CSS
+- [Development - JavaScript](https://github.com/simonjvardy/alarm-clock/projects/2)
+  - Manages tasks relating to the development of the JavaScript functionality
+- [Bug Fixes](https://github.com/simonjvardy/alarm-clock/projects/3)
+  - Manages the triage and prioritization of the bug fixes.
+
+The Projects are created using the following GitHub templates:
+- `Automated kanban` template for the **Development** and **Development - JavaScript** projects 
+- `Bug Triage` template for the **Bug Fixes** project.
+
+The following kanban project cards are used to manage the tasks:
+- **Backlog** - this card is used to capture ideas for project tasks.
+- **To Do** - this is the current work queue for the project.
+- **In Progress** - this is the list of tasks currently in work.
+    - New issues and pull requests are automatically added to this column using project card automation options.
+- **Testing** - Testing tasks list
+- **Done** - completed tasks
+
+The following Bug Triage template project cards are used to manage the Bux fixes tasks:
+- **Needs Triage** - this card is used to capture new bugs prior to assigning a priority.
+  - A triage card is more appropriate for larger projects than this but left in as this is where all new issues are assigned when linking a project to a new issue.
+- **High Priority** - this is the high priority queue for the project.
+- **Low Priority** - this is the low priority queue for the project.
+- **Closed** - completed tasks.
+
+Markdown syntax is used to create **"To-Do" list** style checkboxes by adding `- [ ]` for an un-ticked checkbox and `- [x]` for a ticked checkbox on cards as a way of splitting a single complex task into a list of steps to be completed.
+
+![GitHub Projects - Development](assets/img/github-projects-development.png)
+![GitHub Projects - Bug Fixes](assets/img/github-projects-bugfixes.png)
+
+---
+
 ## Version Control ##
-**Version control** for this repository is managed within **GitHub** and **Gitpod** using separate [branches](https://github.com/simonjvardy/world-clock/branches)  used to work on specific aspects of the project.
+**Version control** for this repository is managed within **GitHub** and **Gitpod** using separate [branches](https://github.com/simonjvardy/alarm-clock/branches)  used to work on specific aspects of the project.
 The following describes the repository branch structure:
 - **Master** - this is the default branch and the source for the repository deployment.
     - **Documentation** - this branch is used for updating the README.md and testing.md documentation only.
@@ -369,7 +445,7 @@ The following workflow steps are used to create and update branches within Gitpo
 
 
 #### Merging branches in GitHub ####
-10. Opening the repository in Github, a new **pull request** is created for the updated branch and assigned to the **Development project**.
+10. Opening the repository in Github, a new **pull request** is created for the updated branch and assigned to its related **Development**, **Development - JavaScript** or **Bug Fixes** project.
 11. The changes are **reviewed** to ensure there are **no conflicts** between the **updated branch** and the **Master branch**.
 12. The changes are then **merged** into the **Master branch** and the merge request is **closed**. The **Project entry** is **automatically** moved to the **Done** card.
 
@@ -382,43 +458,6 @@ The following workflow steps are used to create and update branches within Gitpo
 17. **Repeat steps 3 - 17 regularly** to ensure updates are **saved** and **correctly version controlled** in GitHub.
 
 ---
-
-## Project Management ##
-
-GitHub [Projects](https://github.com/simonjvardy/world-clock/projects) are used to organize the planning and development of the website.
-Three GitHub projects are used to manage different aspects of the site development:
-- [Development](https://github.com/simonjvardy/world-clock/projects/1)
-  - Manages general project tasks and files including HTML & CSS
-- [Development - JavaScript](https://github.com/simonjvardy/world-clock/projects/2)
-  - Manages tasks relating to the development of the JavaScript functionality
-- [Bug Fixes](https://github.com/simonjvardy/world-clock/projects/3)
-  - Manages the triage and prioritization of the bug fixes.
-
-The Projects are created using the following GitHub templates:
-- `Automated kanban` template for the **Development** and **Development - JavaScript** projects 
-- `Bug Triage` template for the **Bug Fixes** project.
-
-The following kanban project cards are used to manage the tasks:
-- **Backlog** - this card is used to capture ideas for project tasks.
-- **To Do** - this is the current work queue for the project.
-- **In Progress** - this is the list of tasks currently in work.
-    - New issues and pull requests are automatically added to this column using project card automation options.
-- **Testing** - Testing tasks list
-- **Done** - completed tasks
-
-he following Bug Triage template project cards are used to manage the Bux fixes tasks:
-- **Needs Triage** - this card is used to capture new bugs prior to assigning a priority.
-  - A triage card is more appropriate for larger projects than this but left in as this is where all new issues are assigned when linking a project to a new issue.
-- **High Priority** - this is the high priority queue for the project.
-- **Low Priority** - this is the low priority queue for the project.
-- **Closed** - completed tasks.
-
-Markdown syntax is used to create **"To-Do" list** style checkboxes by adding `- [ ]` for an un-ticked checkbox and `- [x]` for a ticked checkbox on cards as a way of splitting a single complex task into a list of steps to be completed.
-
-![GitHub Projects - Development](assets/img/github-projects-development.png)
-![GitHub Projects - Bug Fixes](assets/img/github-projects-bugfixes.png)
-
----
 ## Testing ##
 
 - Testing information can be found in a separate [testing.md](testing.md) file.
@@ -426,13 +465,13 @@ Markdown syntax is used to create **"To-Do" list** style checkboxes by adding `-
 ---
 ## Bugs ##
 
-To manage bugs and issues tracking, the default GitHub [bug_report.md template](https://github.com/simonjvardy/world-clock/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) has been created and activated within the repository settings Features > Issues section.
-All new bugs and issues are tracked within the GitHub repository [Issues section](https://github.com/simonjvardy/world-clock/issues) .
-Open issues are managed within the [GitHub Projects section](https://github.com/simonjvardy/world-clock/projects)
+To manage bugs and issues tracking, the default GitHub [bug_report.md template](https://github.com/simonjvardy/alarm-clock/blob/master/.github/ISSUE_TEMPLATE/bug_report.md) has been created and activated within the repository settings Features > Issues section.
+All new bugs and issues are tracked within the GitHub repository [Issues section](https://github.com/simonjvardy/alarm-clock/issues) .
+Open issues are managed within the [GitHub Projects section](https://github.com/simonjvardy/alarm-clock/projects)
 
 Each branch is then **merged** into the **master branch** using a **pull request** that is **linked** to the **open issue**. Once merged, and the bug report **closed**, the branch is **deleted**.
 
-Fixed bugs and issues are marked as [closed](https://github.com/simonjvardy/world-clock/issues?q=is%3Aissue+is%3Aclosed).
+Fixed bugs and issues are marked as [closed](https://github.com/simonjvardy/alarm-clock/issues?q=is%3Aissue+is%3Aclosed).
 
 ---
 
@@ -443,26 +482,26 @@ The website was developed using both *Gitpod* and *Visual Studio Code* and using
 - Opened up **GitHub** in the browser.
 - Signed in with my **username** and **password**.
 - Selected my **repositories**.
-- Navigated to **simonjvardy/world-clock**.
+- Navigated to **simonjvardy/alarm-clock**.
 - In the top navigation clicked **settings**.
 - Scrolled down to the **GitHub Pages** area.
 - Selected **Master Branch** from the **Source** dropdown menu.
 - Clicked to **confirm** my **selection**.
-- [world-clock](https://simonjvardy.github.io/world-clock/) is now **live** on **GitHub Pages**.
+- [alarm-clock](https://simonjvardy.github.io/alarm-clock/) is now **live** on **GitHub Pages**.
 
-### Running world-clock Locally ###
+### Running alarm-clock Locally ###
 
-Cloning world-clock from GitHub:
+Cloning alarm-clock from GitHub:
 
-- Navigate to **simonjvardy/world-clock**.
-- Click the green **Code** button.
+- Navigate to **simonjvardy/alarm-clock**.
+- Click the **Code** button.
 - **Copy** the url in the dropdown box.
 - Using your favourite **IDE** open up your preferred terminal.
 - **Navigate** to your desired file location.
 
-Copy the following code and input it into your terminal to clone world-clock:
+Copy the following code and input it into your terminal to clone alarm-clock:
 
-```git clone https://github.com/simonjvardy/world-clock.git```
+```git clone https://github.com/simonjvardy/alarm-clock.git```
 
 ---
 
@@ -497,6 +536,8 @@ The following websites were used as the starting point and inspiration for creat
 - [jQuery2DotNet](https://jsfiddle.net/lesson8/ezhzq/) HTML Canvas clock code example.
 - [Script Tutorials](http://www.script-tutorials.com/html5-clocks/) HTML Canvas clock code example.
 - [joylearn YouTube channel](https://www.youtube.com/watch?v=v3kDlRx0c5M) JavaScript alarm clock tutorial.
+- [Code Instinct](https://www.youtube.com/watch?v=C2CrBlGvbEM) How to Create Realtime Clock using Html, CSS and Javascript
+- [Anood @noodal Code Pen](https://codepen.io/noodal/pen/mddMWEO) Alarm clock in Vanilla Javascript.
 
 
 
@@ -515,17 +556,21 @@ The following websites were used as the starting point and inspiration for creat
 - [digitaljhelms](https://gist.github.com/digitaljhelms/4287848) for ideas and help with GitHub branch naming conventions.
 - [TutorialRepublic](https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/) for Boostrap help and tutorials.
 - [Dev.Opera](http://dev.opera.com/articles/view/html-5-canvas-the-basics/) HTML5 canvas - the basics
+- [rgraph](https://www.rgraph.net/canvas/reference/getcontext.html) The getContext() function tutorial.
 - [Smashing Magazine](https://www.smashingmagazine.com/2010/10/local-storage-and-how-to-use-it/) Guide on Local Storage
 - [GitHub](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site) Help guide on using Error 404 pages on repositories.
 - [Colorlib](https://colorlib.com) the 404.html was made by Colorlib. Go visit their website for more awesome templates, themes and tools.
 - [Jenkov.com](http://tutorials.jenkov.com/html5-canvas/text.html) tutorials on HTML5 Canvas.
+- [kirkkenny](https://github.com/kirkkenney/alarm-clock) GitHub alarm-clock repo.
 - [Stack Overflow](https://stackoverflow.com/) For help fixing so many thing that fell over on this project!
   - [Stack Overflow](https://stackoverflow.com/questions/273695/what-are-some-examples-of-commonly-used-practices-for-naming-git-branches) for ideas and help with GitHub branch naming conventions.
-  - [Stack Overflow](https://stackoverflow.com/questions/18541331/how-to-make-javascript-use-time-from-the-world-clock-gmt-to-be-specific) for ideas and help with making JavaScript use the world clock (GMT).
+  - [Stack Overflow](https://stackoverflow.com/questions/18541331/how-to-make-javascript-use-time-from-the-alarm-clock-gmt-to-be-specific) for ideas and help with making JavaScript use the world clock (GMT).
   - [Stack OVerflow](https://stackoverflow.com/questions/25095548/how-to-draw-a-circle-in-html5-canvas-using-javascript) for ideas and help with drawing circles using HTML Canvas elements and JavaScript
   - [Stack Overflow](https://stackoverflow.com/questions/3511200/new-image-how-to-know-if-image-100-loaded-or-not) for fixing the "wait until the image has fully loaded" problem with the clock background.
 - [Bootstrap](https://getbootstrap.com/)
   - [Modal](https://getbootstrap.com/docs/4.5/components/modal/) example code was copied and adapted for the Help Page.
   - [Form Groups](https://getbootstrap.com/docs/4.5/components/forms/) example code was copied and adapted for the alarm clock settings.
   - [Accordion](https://getbootstrap.com/docs/4.0/components/collapse/) example code was copied and adapted for the alarm clock settings.
+  
+
 ---
