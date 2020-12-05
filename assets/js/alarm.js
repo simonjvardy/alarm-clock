@@ -1,7 +1,8 @@
 /*jslint white: true */
 /*jshint esversion: 6 */
 
-// Code adapted from// https://www.youtube.com/watch?v=v3kDlRx0c5M
+// Get the DOM Element for the DOM audio element
+const alarmSound = document.getElementById("alarmSound");
 
 // Get the DOM Elements for the Alarm Clock section
 const alarmHrs = document.getElementById("alarmHrs");
@@ -39,7 +40,7 @@ function alarmTime() {
   let seconds = currentDate.getSeconds();
   let currentTime = String(hour) + ":" + String(minute) + ":" + String(seconds);
   if (currentTime === alarmElement) {
-    alarmDisplay.play();
+    alarmSound.play();
 
      // Assign css class to bell icon to make the image shake
     bellIconDiv.classList.add("bell-icon-shake");
@@ -68,7 +69,7 @@ alarmSetButton.onclick = function () {
     alarmSetButton.className = "btn-red btn-shape";
 
     // Show a bell icon when the alarm is set
-    bellIconDiv.innerHTML = '<i class="far fa-bell"></i>';
+    bellIcon.innerHTML = '<i class="far fa-bell"></i>';
 
     alarmActive = true;
   } else {
@@ -78,15 +79,15 @@ alarmSetButton.onclick = function () {
     */
     alarmHrs.disabled = false;
     alarmMins.disabled = false;
-    alarmDisplay.pause();
+    alarmSound.pause();
     this.innerText = "Set Alarm";
     alarmSetButton.className = "btn-green btn-shape";
 
     // Show a bell-slash icon  when the alarm is not set
-    bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
+    bellIcon.innerHTML = '<i class="far fa-bell-slash"></i>';
 
     //  Removes the image shake css styling class
-    bellIconDiv.classList.remove("bell-icon-shake");
+    bellIcon.classList.remove("bell-icon-shake");
     alarmActive = false;
   }
 }
