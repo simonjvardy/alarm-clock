@@ -112,13 +112,8 @@ body {
 
 .form-control {
     display: inline-block;
-    width: 60px;
+    width: 65px;
     font-size: 1.2rem;
-}
-
-.btn-shape {
-    margin-bottom: 10px;
-    border-radius: 25px;
 }
 
 #alarmMins {
