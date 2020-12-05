@@ -6,7 +6,7 @@
 // Get the DOM Elements for the Alarm Clock section
 const alarmHrs = document.getElementById("alarmHrs");
 const alarmMins = document.getElementById("alarmMins");
-const startStop = document.getElementById("startStop");
+const alarmSetButton = document.getElementById("alarmSetButton");
 const alarmDisplay = document.getElementById("alarmSound");
 const bellIconDiv = document.getElementById("alarmBell");
 
@@ -14,10 +14,12 @@ const bellIconDiv = document.getElementById("alarmBell");
 initial page load shows the bell-slash icon to show
 the alarm is not set
  */
-bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
+function loadBellIcon() {
+  bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
+}
 
 // Declare the alarm calculation variables
-let currentTime;
+//let currentTime;
 let alarmElement;
 let alarmActive = false;
 
@@ -27,21 +29,23 @@ by the user once per second. if there is equality then
 play the alarm sound and shake the alarm bell icon
 */
 function alarmTime() {
-  let now = new Date();
-  /*
+    /*
   Return the time portion of a Date object as a string
   in the format "hh:mm:ss"
   */
-  currentTime = now.toLocaleTimeString();
+  let currentDate = new Date();
+  let hour = currentDate.getHours();
+  let minute = currentDate.getMinutes();
+  let seconds = currentDate.getSeconds();
+  let currentTime = String(hour) + ":" + String(minute) + ":" + String(seconds);
   if (currentTime === alarmElement) {
     alarmDisplay.play();
 
-    // Assign css class to bell icon to make the image shake
+     // Assign css class to bell icon to make the image shake
     bellIconDiv.classList.add("bell-icon-shake");
   }
   setTimeout(alarmTime, 1000);
 }
-alarmTime();
 
 /*
 The alarm button changes text and colour when clicked
@@ -49,7 +53,7 @@ to show alarm set and cleared states. The hours
 and minutes selectors are disabled while the
 alarm is set.
 */
-startStop.onclick = function () {
+alarmSetButton.onclick = function () {
   if (alarmActive === false) {
     /*
     Disable the alarm Hours and minutes selectors when
@@ -57,11 +61,11 @@ startStop.onclick = function () {
     */
     alarmHrs.disabled = true;
     alarmMins.disabled = true;
-    alarmElement = alarmHrs.value + ":" + alarmMins.value + ":00";
+    alarmElement = alarmHrs.value + ":" + alarmMins.value + ":0";
 
     // Change the colour and text of the alarm clock button
     this.innerText = "Clear Alarm";
-    document.getElementById("startStop").className = "btn-red btn-shape";
+    alarmSetButton.className = "btn-red btn-shape";
 
     // Show a bell icon when the alarm is set
     bellIconDiv.innerHTML = '<i class="far fa-bell"></i>';
@@ -76,7 +80,7 @@ startStop.onclick = function () {
     alarmMins.disabled = false;
     alarmDisplay.pause();
     this.innerText = "Set Alarm";
-    document.getElementById("startStop").className = "btn-green btn-shape";
+    alarmSetButton.className = "btn-green btn-shape";
 
     // Show a bell-slash icon  when the alarm is not set
     bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
@@ -85,4 +89,11 @@ startStop.onclick = function () {
     bellIconDiv.classList.remove("bell-icon-shake");
     alarmActive = false;
   }
-};
+}
+
+function alarm() {
+  loadBellIcon();
+  alarmTime();
+}
+
+alarm();
