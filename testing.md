@@ -43,6 +43,15 @@ The following **validation services** and **linters** were used to check the val
 - [Chrome DevTools Lighthouse](https://developers.google.com/web/tools/lighthouse)
   - An open-source automated tool for improving webpages by running audits for performance, accessibility, progressive web apps, SEO etc.
 
+
+  - **Desktop Performance Report**
+    
+    ![Google Lighthouse - Desktop](assets/img/testing-lighthouse-desktop.png)
+
+  - **Mobile Performance Report**
+
+    ![Google Lighthouse - Mobile](assets/img/testing-lighthouse-mobile.png)
+
 - [JSLint](https://jslint.com/)
   - JSLint is a code quality tool that detects errors and potential problems in JavaScript code.
   - The following option were selected to prevent  errors and warning being returned owing to the strict nature of the checking:
