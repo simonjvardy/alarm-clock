@@ -24,7 +24,8 @@ function alarmTime() {
   let hour = currentDate.getHours();
   let minute = currentDate.getMinutes();
   let seconds = currentDate.getSeconds();
-  let currentTime = String(hour) + ":" + String(minute) + ":" + String(seconds);
+  let secondsText = (seconds < 10 ? '0' + seconds : String(seconds));
+  let currentTime = String(hour) + ":" + String(minute) + ":" + secondsText;
   if(currentTime === alarmElement) {
     alarmDisplay.play();
 
@@ -44,7 +45,7 @@ function createAlarm() {
       // Disable the alarm Hours and minutes selectors when the alarm is set
       alarmHrs.disabled = true;
       alarmMins.disabled = true;
-      alarmElement = alarmHrs.value + ":" + alarmMins.value + ":0";
+      alarmElement = alarmHrs.value + ":" + alarmMins.value + ":00";
 
       // Change the colour and text of the alarm clock button
       this.innerText = "Clear Alarm";
