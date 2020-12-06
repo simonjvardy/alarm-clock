@@ -36,7 +36,7 @@
 [JSLint](https://jslint.com/)
 ![JSLint Options](assets/img/testing-jslint-options.png)
 
-clock.js and alarm.js testing using JSLint passed the linter test successfully with the following selected options. 
+clock.js and alarm.js testing using JSLint passed the linter test successfully with the following selected options: 
 - Assume: a browser
   - This was required as JSLint is intolerant of DOM HTML `.getElementByID()` method.
 - Tolerate: single quote strings

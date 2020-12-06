@@ -3,10 +3,13 @@
 The idea for this project is to provide the user with an interactive alarm clock. 
 
 
-The alarm clock features a running analogue clock face that shows the user's current time and date as well as providing a interactive alarm feature. Thje user is able to select a time for the alarm to go off and can set or cancel the alarm.
+The alarm clock features a running analogue clock face that shows the user's current time and date as well as providing a interactive alarm feature. The user is able to select a time for the alarm to go off and can set or cancel the alarm.
 
 
 When the set alarm time is reached, the app plays an audible alarm as well as displaying visual indicator of the alarm.
+
+
+I use this alarm clock app daily, keeping it open in a web browser to set alarms for meeting reminders or setting productivity timers when working from home. I prefer using this app now over setting alarms on a phone for ease of use.
 
 
 ![Responsive Layout Screenshots](assets/img/am-i-responsive.png) 
@@ -266,6 +269,7 @@ The final wireframes were created using Balsamiq adapted from the original hand 
   - use **Window localStorage Property** to save the set alarm time after the browser window closes.
   - Display **local weather** information from **APIs** such as OpenWeatherMap.org
   - Display **multiple clock faces** to allow users to show times for a city in a different timezone using **APIs** such as Google Time Zone.
+  - **"Pomodoro"** style timer function for helping maintain a user's work productivity.
   
 
 ### Site Construction  ###
