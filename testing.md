@@ -1,19 +1,21 @@
-![Logo](/assets/images/logo-image.jpg)
+![Alarm Clock](assets/favicons/apple-touch-icon.png)
 
-# ISS-Tracker Project Testing Details #
+# alarm-clock Project Testing Details #
 
 
-[Main README.md file](https://github.com/simonjvardy/ISS-Tracker/blob/master/README.md)
+[Main README.md file](https://github.com/simonjvardy/alarm-clock/blob/master/README.md)
 
-[View the live project here.](https://simonjvardy.github.io/ISS-Tracker/)
+[View the live project here.](https://simonjvardy.github.io/alarm-clock/)
 
 ---
 
 ## Table of Contents ##
 
-- [Aviation-Consultancy Project Testing Details](#aviation-consultancy-project-testing-details)
+- [alarm-clock Project Testing Details](#alarm-clock-project-testing-details)
   - [Table of Contents](#table-of-contents)
   - [Automated Testing](#automated-testing)
+    - [JSLint](#jslint)
+    - [JSHint](#jshint)
     - [Validation Services](#validation-services)
   - [Manual Testing](#manual-testing)
     - [Unit Testing](#unit-testing)
@@ -23,15 +25,30 @@
     - [Testing undertaken on tablet and phone devices](#testing-undertaken-on-tablet-and-phone-devices)
   - [Bugs discovered](#bugs-discovered)
       - [Known Bugs](#known-bugs)
-      - [Unsolved Bugs](#unsolved-bugs)
+      - [Unsolved Issues](#unsolved-issues)
 
 
 ---
 ## Automated Testing ##
 
-### Jasmine ###
+### JSLint ###
 
-- [Jasmine - Behaviour-Driven JavaScript](https://jasmine.github.io)
+[JSLint](https://jslint.com/)
+![JSLint Options](assets/img/testing-jslint-options.png)
+
+clock.js and alarm.js testing using JSLint passed the linter test successfully with the following selected options: 
+- Assume: a browser
+  - This was required as JSLint is intolerant of DOM HTML `.getElementByID()` method.
+- Tolerate: single quote strings
+  - This was needed to handle the font awesome bell icon `bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';` string.
+- Tolerate: this
+  - Used in alarm.js function `alarmSetButton.onclick`
+- Tolerate: Whitespace mess
+  - JSLint is wery picky about whitespace at the end of comments as well as code. The .js files were cleansed of whitespaces but the odd one still lurks here or there giving frustrating errors.
+
+
+
+### JSHint ###
 
 ### Validation Services ###
 
@@ -63,27 +80,22 @@ The following **validation services** and **linter** were used to check the vali
 - The pass / fail record for each test case.
 
 ### Peer Code Review ###
-The deployed website link was uploaded to the following sites for peer code review and testing:
-- Code Institute Slack #peer-code-review channel
-- Code Institute Slack #may-2020 channel
-- LinkedIn for general review and feedback
+The deployed website link was subjected to peer code review and testing:
+- Code Institute Mentor - Narender Singh
 
 ### Testing undertaken on desktop ###
 
 - Hardware:
     - Macbook Pro Laptop 17" (2009)
-    - Macbook Pro Laptop 16" (2019)
     - Dell 5590 Laptop
 - Tested Operating Systems:
     - Windows 10
-    - OSX 10.11
-    - OSX 10.15    
+    - OSX 10.11 
 - Tested Browsers:
     - Windows 10:
         - Chrome
         - Firefox
         - Edge 
-        - Opera
     - OSX 10.11
         - Chrome
         - Firefox
@@ -96,8 +108,8 @@ The deployed website link was uploaded to the following sites for peer code revi
     - iPad Pro 10.5"
     - iPhone XS Max
 - Tested Operating Systems:
-    - iOS 13.6.1
-    - iPadOS 13.6.1
+    - iOS 14.2
+    - iPadOS 14.2
 - Tested Browsers:
     - iOS / iPadOS
         - Chrome
@@ -108,14 +120,37 @@ The deployed website link was uploaded to the following sites for peer code revi
 ---
 ## Bugs discovered ##
 
-The issue log is managed on the [GitHub Project Issues section](https://github.com/simonjvardy/ISS-Tracker/issues) using the standard GitHub [bug\_report.md template](https://github.com/simonjvardy/ISS-Tracker/blob/master/.github/ISSUE_TEMPLATE/bug_report.md)
+The issue log is managed on the [GitHub Project Issues section](https://github.com/simonjvardy/alarm-clock/issues) using the standard GitHub [bug\_report.md template](https://github.com/simonjvardy/alarm-clock/blob/master/.github/ISSUE_TEMPLATE/bug_report.md)
 
 
 #### Known Bugs ####
 
-[Issue #](https://github.com/simonjvardy/ISS-Tracker/issues/#)
-- Unit Testing: 
-  - 
+[Issue #36:](https://github.com/simonjvardy/alarm-clock/issues/36)
+- **Unit Test: No audio when testing the alarm sound on iPad**
+  - The audio .mp3 file failed to play when the alarm was triggered on an iPad
+  - This is a known problem described here: [WebKit Bugzilla](https://bugs.webkit.org/show_bug.cgi?id=132691).
+    - HTMLAudioElement doesn't play with Javascript on mobile WebKit due to the Audio.play() can only be triggered by a user interactive click.
+    - This is not going to be fixed as it is developer policy.
+    - Possible alternative solution is to use WebAudio API instead.
 
-#### Unsolved Bugs ####
+[Issue #40](https://github.com/simonjvardy/alarm-clock/issues/40)
+- **Unit Test: The Alarm set / clear button has a random black border in Chrome and Edge browsers**
+  - The Alarm set / clear button displays black solid border when the button is clicked in Chrome and Edge browsers that isn't evident in Firefox or Safari browsers. The black button border disappears when the user mouse-clicks elsewhere on the page.
+  - Dev Tools in both Edge and Chrome have not shown any css classes that are responsible for the border so far. It is suspected that this is a rendering style of the `<button>` element in Chrome and Edge that isn't present in Firefox or Safari.
 
+#### Unsolved Issues ####
+
+[Issue #4](https://github.com/simonjvardy/alarm-clock/issues/4)
+- **Dev: How can I get 2 clocks to show on the same HTML page?**
+  - The project originally needed to display two clocks: one for the user's local time and another showing the local time for a city searched for by the user; calling an API to Google Time Zones.
+    - Creating a clock using the HTML5 canvas element context method proved difficult to achieve as each canvas context method needed to be associated with a unique ID.
+    - Initial testing with async / await functions proved successful on Firefox browsers only; Chrome and Egde both failed to draw on both canvas elements. Further development is needed.
+
+[Issue #11](https://github.com/simonjvardy/alarm-clock/issues/11)
+- **Unit Test: Unable to get the background image to load with async / await functions**
+  - The clock hands would fail to draw if the background image hadn't loaded. Due to the file size of the image asset the the clock function needed to be paused until the imge had fully loaded.
+  - The use of an async / await function to ensure the background image loads before running the clock and provide error handling was an ideal solution
+  - Initial errors caused by the `fetch(image_url)` method caused an `Uncaught TypeError: CanvasRenderingContext2D.drawImage: Argument 1 could not be converted to any of: HTMLImageElement, SVGImageElement, HTMLVideoElement, ImageBitmao.`
+  - The `drawImage` expects its first argument as an image not a url string. A new image needed to be constructed using `let img = new Image();`
+  - Further testing for issue #4 proved that async / await functions could be a solution but further testing and development is needed.
+  - An alternative solution using `.onload` and a `setTimeout()` method proved a simple but successful way to wait for the background image to load.

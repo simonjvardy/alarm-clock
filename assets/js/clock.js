@@ -26,8 +26,8 @@ const clockFaceImg = new Image();
 let clockFaceImgLoaded = false;
 
 /* 
-Ensure the image has loaded from the server before drawing anything on the canvas.
-clockFaceImgLoaded returns true once the image is loaded
+Ensure the image has loaded from the server before drawing anything
+on the canvas. clockFaceImgLoaded returns true once the image is loaded
 */
 clockFaceImg.onload = function () {
     clockFaceImgLoaded = true;
