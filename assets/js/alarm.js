@@ -16,7 +16,6 @@ function bellIcon() {
   bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
 }
 
-
 /*
 Get the current time and compare to the alarm time set by the
 user once per second
