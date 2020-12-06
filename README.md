@@ -82,7 +82,7 @@ The **features** on the website will:
 I achieve this by:
 
 - Building the clock functionality using an HTML5 `<canvas>` element to draw the clock face and hands.
-- Allowing the user to **set an alarm time**, switch the alarm on or off with a combined alarm set / cancel button.
+- Allowing the user to **set an alarm time**, switch the alarm **on** or **off** with a combined alarm **set / cancel button**.
 
 ### User Goals ###
 
@@ -100,9 +100,9 @@ I achieve this by:
 ### Site Owner Goals ###
 
 - As a **site owner**, I want to create an **interactive website** to present a clean, easy to understand display of information.
-- As a **site owner**, I want the **user** to their current local time and date.
+- As a **site owner**, I want the **user** to see their current local time and date.
 - As a **site owner**, I want the **user** to be able to see errors displayed in a user friendly way.
-- As a **site owner**, I want the **user** to be able to see or hear an alarm clock.
+- As a **site owner**, I want the **user** to be able to see or hear an alarm clock trigger at the set time.
 
 --- 
 
@@ -315,7 +315,7 @@ The [clock flowchart](wireframes/clock-flowchart.pdf) show the code logic for th
 - Each **clock hand** has the same **basic shape** so a **common function** to draw the hand shape, with **hand dimensions** passed as **parameters**, is used which can be called when defining the hours, minutes and seconds hands.
 - **Hours hand rotation calculation:**
   - The **formula** used to calculate the **hours rotation angle** is `(hours value * 360 / 12) % 360` so each hour rotates **30°**.
-  - The `% 360` is really just a nice to have but not essential to the formula. The `Date()` object returns a time value in a **24hrs format**. The **modulus** just returns the same degrees value for **13-23 hours** as for **0-12** e.g. **03:00** or **15:00** returns **90°** rotation angle. Without the `% 360` **15:00** returns **450°** rotation angle which is the same end result.
+  - The `% 360` is really just a nice to have but not essential to the formula. The `Date()` object returns a time value in a **24hrs format** in some browsers. The **modulus** just returns the same degrees value for **13-23 hours** as for **0-12** e.g. **03:00** or **15:00** returns **90°** rotation angle. Without the `% 360` **15:00** returns **450°** rotation angle which is the same end result.
   - With a **30°** angle between each hour on the clock face, the hour hand will make large jumps from hour to hour. To replicate a real clock hand movement, the **hour hand** rotation angle is **combined** with the **minutes value**: `hours value + (minutes value / 60)` to divide the movement between hours numbers into **1/60 segments**. As the minutes increase, the hour hand **slowly transitions** towards the next hour in **proportion** to the **minutes value**.
 
 - **Minutes hand rotation calculation:**
@@ -332,7 +332,7 @@ The [clock flowchart](wireframes/clock-flowchart.pdf) show the code logic for th
   - To rotate the clock hands, the rotation axis needs to be in the vertical and horizontal center of the canvas. For a 500px x 500px canvas this is at coordinates `250,250`. To move the centre point of the canvas, the context translate method is passed the canvas dimensions divided by two: `context.translate(canvas.width/2, canvas.height/2);`.
     - This has the added bonus of making the centre point responsive if the canvas dimensions are reduced from the defined dimensions on smaller device sizes.
   - The unfortunate downside to this approach is the background image is loaded from the new `0,0` coordinates in the centre of the canvas and now only covers the bottom right corner of the canvas!
-    - To correct this, the canvas drawImage() method is passed the following arguments `context.drawImage(clockFaceImg, canvas.width/2 * -1, canvas.height/2 * -1, canvas.width, canvas.height);` to define the `HTMLImageElement`, starting x,y coordinates and the image width & height. This translates to `-250,-250` coordinates with the canvas width and height as `500px`.
+    - To correct this, the canvas drawImage() method is passed the following arguments `context.drawImage(clockFaceImg, canvas.width/2 * -1, canvas.height/2 * -1, canvas.width, canvas.height);` to define the `HTMLImageElement`, starting x,y coordinates and the image width & height. This translates to `-250,-250` coordinates with the image width and height as `500px`.
 
 
 ### Clock Face Text ###
@@ -363,7 +363,7 @@ The [alarm flowchart](wireframes/alarm-flowchart.pdf) show the code logic for th
     - This replaced the original `.toLocaleTimeString()` method as the returned string format is different between browser developers:
       - Firefox returns the time string in the format "hh:mm:ss" as a 24hr format.
       - Chrome and Edge returns the time string in the format "hh:mm:s AM" as a 12hr format.
-  - The set alarm time is compared to the current time every second. When there is equality in the string values, the audio file it triggered using the `.play()` method and the bell icon is assigned a new css class to make the icon "shake" using css animation.
+  - The set alarm time is compared to the current time every second. When there is strict equality comparison between the string values, the audio file it triggered using the `.play()` method and the bell icon is assigned a new css class to make the icon "shake" using css animation.
 
 - The alarm is set and cleared using the `.onclick` event for the alarm button
   - The function uses an `if else` conditional statement to determine the alarm state.
