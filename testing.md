@@ -14,8 +14,6 @@
 - [alarm-clock Project Testing Details](#alarm-clock-project-testing-details)
   - [Table of Contents](#table-of-contents)
   - [Automated Testing](#automated-testing)
-    - [JSLint](#jslint)
-    - [JSHint](#jshint)
     - [Validation Services](#validation-services)
   - [Manual Testing](#manual-testing)
     - [Unit Testing](#unit-testing)
@@ -31,36 +29,69 @@
 ---
 ## Automated Testing ##
 
-### JSLint ###
-
-[JSLint](https://jslint.com/)
-![JSLint Options](assets/img/testing-jslint-options.png)
-
-clock.js and alarm.js testing using JSLint passed the linter test successfully with the following selected options: 
-- Assume: a browser
-  - This was required as JSLint is intolerant of DOM HTML `.getElementByID()` method.
-- Tolerate: single quote strings
-  - This was needed to handle the font awesome bell icon `bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';` string.
-- Tolerate: this
-  - Used in alarm.js function `alarmSetButton.onclick`
-- Tolerate: Whitespace mess
-  - JSLint is wery picky about whitespace at the end of comments as well as code. The .js files were cleansed of whitespaces but the odd one still lurks here or there giving frustrating errors.
-
-
-
-### JSHint ###
-
 ### Validation Services ###
 
-The following **validation services** and **linter** were used to check the validity of the website code.
+The following **validation services** and **linters** were used to check the validity of the website code.
 
 
 - [W3C Markup Validation](https://validator.w3.org/) 
   - This validator checks the markup validity of Web documents in HTML, XHTML, SMIL, MathML, etc.
+
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/)
   - This validator checks the validity of cascading style sheets (css) and (X)HTML documents with style sheets.
+
 - [Chrome DevTools Lighthouse](https://developers.google.com/web/tools/lighthouse)
   - An open-source automated tool for improving webpages by running audits for performance, accessibility, progressive web apps, SEO etc.
+
+- [JSLint](https://jslint.com/)
+  - JSLint is a code quality tool that detects errors and potential problems in JavaScript code.
+  - The following option were selected to prevent  errors and warning being returned owing to the strict nature of the checking:
+  ![JSLint Options](assets/img/testing-jslint-options.png)
+
+  - clock.js and alarm.js testing using JSLint passed the linter test successfully with the following selected options: 
+    - Assume: a browser
+      - This was required as JSLint is intolerant of DOM HTML `.getElementByID()` method.
+    - Tolerate: single quote strings
+       - This was needed to handle the font awesome bell icon `bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';` string.
+    - Tolerate: this
+      - Used in alarm.js function `alarmSetButton.onclick`
+    - Tolerate: Whitespace mess
+      - JSLint is very picky about whitespace at the end of comments as well as code. The .js files were cleansed of whitespaces but the odd one still lurks here or there giving frustrating errors. It's also very sensitive to indentation styles. 
+        - The code is indented with the standard 2 spaces but triggers JSLint warnings
+        ![JSLint whitespace warnings](assets/img/testing-jslint-whitespace-warnings.png)
+    - /\*global\*/ directive is used to instruct JSLint not to give undeclared 'Image' warnings when creating new HTMLImageElement instances.
+    ![JSLint whitespace warnings](assets/img/testing-jslint-global-warnings.png)
+
+
+    - **alarm.js results**
+    ![JSLint results for alarm.js](assets/img/testing-jslint-results-alarm.png)
+
+
+
+    - **clock.js results**
+    ![JSLint results for clock.js](assets/img/testing-jslint-results-clock.png)
+
+
+- [JSHint (version 2.12.0)](https://jshint.com/)
+  - JSHint is a community-driven tool that detects errors and potential problems in JavaScript code.
+  - The following option were selected to prevent  errors and warning being returned owing to the strict nature of the checking:
+
+    ![JSLint Options](assets/img/testing-jshint-options.png)
+
+  - clock.js and alarm.js testing using JSHint passed the linter test successfully with the following selected additional option:
+    - New JavaScript features (ES6)
+      - This was selected as both scripts use ECMAScript 6 features such as `const`
+
+
+  - **alarm.js results**
+  
+    ![JSLint Options](assets/img/testing-jshint-results-alarm.png)
+
+
+  - **clock.js results**
+  
+    ![JSLint Options](assets/img/testing-jshint-results-clock.png)
+
 
 ---
 ## Manual Testing ##

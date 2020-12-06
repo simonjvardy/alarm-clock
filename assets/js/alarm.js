@@ -1,5 +1,5 @@
 // Code adapted from// https://www.youtube.com/watch?v=v3kDlRx0c5M
-/*jshint esversion: 6 */
+
 
 // Get the DOM Elements for the Alarm Clock section
 const alarmSetButton = document.getElementById("alarmSetButton");

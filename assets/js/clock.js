@@ -1,3 +1,5 @@
+/* global Image */
+/*jslint browser: true */
 /*jslint white: true */
 /*jshint esversion: 6 */
 
@@ -265,7 +267,7 @@ function clock() {
     if not, wait 10ms and try calling the clock() function again
     */
     if (!clockFaceImgLoaded) {
-        setTimeout('clock()', 100);
+        setTimeout(clock, 100);
         return;
     }
     /*
@@ -275,7 +277,7 @@ function clock() {
     context.translate(canvas.width/2, canvas.height/2);
 
     // Update the createClock() function every second
-    setInterval('createClock()', 1000);
+    setInterval(createClock, 1000);
 }
 
 clock();
