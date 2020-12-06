@@ -1,13 +1,12 @@
 // Code adapted from// https://www.youtube.com/watch?v=v3kDlRx0c5M
 /*jshint esversion: 6 */
 
-// Get the DOM Elements for the Alarm Clock setion
+// Get the DOM Elements for the Alarm Clock section
 const alarmSetButton = document.getElementById("alarmSetButton");
 const alarmDisplay = document.getElementById("alarmSound");
 const bellIconDiv = document.getElementById("alarmBell");
 
-// Declare the alarm calculation variables
-//let currentTime;
+// Declare the alarm variables
 let alarmElement;
 let alarmActive = false;
 
