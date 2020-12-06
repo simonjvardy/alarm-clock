@@ -97,14 +97,14 @@ The following **validation services** and **linters** were used to check the val
 ## Manual Testing ##
 
 ### Unit Testing ###
-[Unit Testing document](testing/iss-tracker-unit-test-plan.pdf) containing:
+[Unit Testing document](testing/alarm-clock-unit-test-plan.pdf) containing:
 - Unit Test scope,
 - The test cases,
 - The pass / fail record for each test case.
 
 
 ### User Acceptance Testing (UAT) ###
-[UAT document](testing/iss-tracker-uat-test-plan.pdf) containing:
+[UAT document](testing/alarm-clock-uat-test-plan.pdf) containing:
 - UAT approach (scope, assumptions and constraints, team roles and responsibilities etc.), 
 - Identified risks, 
 - The test cases,
