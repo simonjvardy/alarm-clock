@@ -37,7 +37,7 @@
             <!-- Alarm Bell Icon -->
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12 justify-content-center" id="alarmBell" aria-label="Alarm bell symbol" ></div>
+                    <div class="col-12 justify-content-center" id="alarmBell"></div>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                                 <div class="card-header" id="headingOne">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                            <h5 class="card-title">Alarm Clock</h5>
+                                            Alarm Clock
                                         </button>
                                     </h2>
                                 </div>
@@ -87,7 +87,8 @@
                                                     <option value="22">22</option>
                                                     <option value="23">23</option>
                                                 </select>
-                                                <label for="Hour">:</label>
+                                                <!-- Time Value separator between Hrs & Mins e.g. 15:00 -->
+                                                <label>:</label>
                                                 <!-- Minutes Selector -->
                                                 <select class="form-control form-control-sm" name="Minute" id="alarmMins">
                                                     <option value="00">00</option>
@@ -208,8 +209,8 @@
         </footer>
         <!-- /Footer -->
         
-        <script type="text/javascript" src="assets/js/clock.js"></script>
-        <script type="text/javascript" src="assets/js/alarm.js"></script>
+        <script src="assets/js/clock.js"></script>
+        <script src="assets/js/alarm.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>

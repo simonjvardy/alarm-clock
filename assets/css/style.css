@@ -22,21 +22,9 @@ body {
     /* CSS Styling and animation keyframes created with https://www.gradient-animator.com/ */
     background: linear-gradient(270deg, #f72585, #b5179e, #7209b7, #560bad, #480ca8, #3a0ca3, #3f37c9, #4361ee, #4895ee, #4cc9f0);
     background-size: 2000% 2000%;
-    -webkit-animation: linear-gradient 30s ease infinite;
-    -moz-animation: linear-gradient 30s ease infinite;
     animation: linear-gradient 30s ease infinite;
 }
 
-@-webkit-keyframes linear-gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes linear-gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
 @keyframes linear-gradient {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
@@ -125,10 +113,8 @@ body {
     border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
-.card-header h5 {
-    font-size: 1.8rem;
+.card-header h2 {
     margin-bottom: 12px;
-    margin-top: 12px;
 }
 
 .card-header:hover {
@@ -142,13 +128,12 @@ body {
     height: 40px;
     width: 100px;
     border-radius: 15px 0;
-    font-style: sans-serif;
 }
 
 .btn-green {
     color: #fff;
     background-color: #28A745;
-    border-color: #28A745;
+    border-color: #28A746;
 }
 
 .btn-green:hover {
@@ -161,7 +146,7 @@ body {
 .btn-red {
     color: #fff;
     background-color: #dc3545;
-    border-color: #dc3545;
+    border-color: #dc3546;
 }
 
 .btn-red:hover {
@@ -173,14 +158,14 @@ body {
 
 .btn-link {
     font-weight: 400;
+    font-size: 1.8rem;
     color: #444;
     text-decoration: none;
 }
 
 .btn-link:hover {
-    font-weight: 400;
-    color: #444;
     text-decoration: underline #444;
+    color: #444;
 }
 
 
