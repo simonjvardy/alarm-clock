@@ -9,7 +9,6 @@ const alarmHrs = document.getElementById("alarmHrs");
 const alarmMins = document.getElementById("alarmMins");
 
 // Declare the alarm variables
-//let currentTime;
 let alarmElement;
 let alarmActive = false;
 
