@@ -3,19 +3,15 @@
 
 // Get the DOM Elements for the Alarm Clock section
 const alarmSetButton = document.getElementById("alarmSetButton");
-const alarmDisplay = document.getElementById("alarmSound");
-const bellIconDiv = document.getElementById("alarmBell");
+const alarmSound = document.getElementById("alarmSound");
+const alarmBellImg = document.getElementById("alarmBell");
 const alarmHrs = document.getElementById("alarmHrs");
 const alarmMins = document.getElementById("alarmMins");
 
 // Declare the alarm variables
+//let currentTime;
 let alarmElement;
 let alarmActive = false;
-
-// initial page load shows the bell-slash icon to show the alarm is not set
-function bellIcon() {
-  bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
-}
 
 /*
 Get the current time and compare to the alarm time set by the
@@ -29,10 +25,10 @@ function alarmTime() {
   let secondsText = (seconds < 10 ? '0' + seconds : String(seconds));
   let currentTime = String(hour) + ":" + String(minute) + ":" + secondsText;
   if(currentTime === alarmElement) {
-    alarmDisplay.play();
+    alarmSound.play();
 
-    // Assign css class to bell icon to make the image shake
-    bellIconDiv.classList.add("bell-icon-shake");
+    // Assign css class to alarm bell icon to make the image shake
+    alarmBellImg.classList.add("bell-icon-shake");
   }
   setTimeout(alarmTime, 1000);
 }
@@ -49,31 +45,26 @@ alarmSetButton.onclick = function() {
     this.innerText = "Clear Alarm";
     alarmSetButton.className = "btn-red btn-shape";
 
-    // Show a bell icon when the alarm is set
-    bellIconDiv.innerHTML = '<i class="far fa-bell"></i>';
+    // Show a bell icon image when the alarm is set
+    alarmBellImg.innerHTML = '<i class="far fa-bell"></i>';
     alarmActive = true;
   } else {
     // Enable the alarm Hours and minutes selectors when the alarm is not set
     alarmHrs.disabled = false;
     alarmMins.disabled = false;
-    alarmDisplay.pause();
+    alarmSound.pause();
     this.innerText = "Set Alarm";
 
     // Assign css class to button
     alarmSetButton.className = "btn-green btn-shape";
 
-    // Show a bell-slash icon  when the alarm is not set
-    bellIconDiv.innerHTML = '<i class="far fa-bell-slash"></i>';
+    // Show a bell-slash icon image when the alarm is not set
+    alarmBellImg.innerHTML = '<i class="far fa-bell-slash"></i>';
 
-    //  Removes the image shake css styling class
-    bellIconDiv.classList.remove("bell-icon-shake");
+    // Removes the image shake css styling class
+    alarmBellImg.classList.remove("bell-icon-shake");
     alarmActive = false;
   }
 };
 
-function createAlarm() {
-  bellIcon();
-  alarmTime();
-}
-
-createAlarm();
+alarmTime();
