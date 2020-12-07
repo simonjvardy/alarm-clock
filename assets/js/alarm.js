@@ -22,8 +22,18 @@ function alarmTime() {
   let hour = currentDate.getHours();
   let minute = currentDate.getMinutes();
   let seconds = currentDate.getSeconds();
-  let secondsText = (seconds < 10 ? '0' + seconds : String(seconds));
-  let currentTime = String(hour) + ":" + String(minute) + ":" + secondsText;
+
+  /*
+  For cross browser compatibility:
+  Some browsers return the hours, minutes and seconds values that are 
+  less than 10   as single digit values e.g. 01:09:05 can also be 1:9:5. 
+  The following code block   tests for this and return the string in 
+  hh:mm:ss format
+  */
+  let hoursText = (hour.toString().length < 2 ? '0' + hour : String(hour));
+  let minutesText = (minute.toString().length < 2 ? '0' + minute : String(minute));
+  let secondsText = (seconds.toString().length < 2 ? '0' + seconds : String(seconds));
+  let currentTime = hoursText + ":" + minutesText + ":" + secondsText;
   if(currentTime === alarmElement) {
     alarmSound.play();
 
